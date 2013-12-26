@@ -18,6 +18,10 @@
 */
 @interface HandsomeUtil : NSObject
 
+@property (nonatomic, retain) NSDateFormatter * timeFormatter;
+@property (nonatomic, retain) NSDateFormatter * dateFormatter;
+
+
 // UTIL METHODS
 +(NSString *)generateUuidString;
 +(NSString *)getApplicationVersion;

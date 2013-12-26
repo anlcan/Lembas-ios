@@ -9,15 +9,6 @@
 #import "HandsomeUtil.h"
 #import "Debug.h"
 
-@interface HandsomeUtil (Private)
-
-@property (nonatomic, retain) NSDateFormatter * timeFormatter;
-@property (nonatomic, retain) NSDateFormatter * dateFormatter;
-
-+(HandsomeUtil*)shared;
-
-@end
-
 @implementation HandsomeUtil
 
 +(HandsomeUtil*)shared{

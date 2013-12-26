@@ -32,4 +32,5 @@
 +(MDate*)mdateFromDate:(NSDate*)date;
 +(MDate*)now;
 
+
 @end

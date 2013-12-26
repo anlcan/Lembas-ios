@@ -200,6 +200,10 @@ static RequestManager *sharedInstance = nil;
 -(void)sendRequest:(HandsomeRequest*)req toUrl:(NSURLRequest*)urlRequest{
    
     
+    if ( [req.delegate respondsToSelector:@selector(requestWillStart:)]){
+        [req.delegate requestWillStart:req];
+    }
+    
     __block HandsomeRequest* __req = req;
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:urlRequest
                                                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {

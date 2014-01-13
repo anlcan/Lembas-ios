@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HandsomeObject.h"
+#import "LembasObject.h"
 
-@interface HandsomeResponse : HandsomeObject {
+@interface LembasResponse : LembasObject {
     
     NSString * status; 	
 }
 
 @property (nonatomic, retain) NSString *status;
-@property (nonatomic, retain) HandsomeObject * info;
+@property (nonatomic, retain) LembasObject * info;
 
    
 @end

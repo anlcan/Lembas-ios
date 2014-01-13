@@ -5,12 +5,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "HandsomeObject.h"
+#import "LembasObject.h"
 #import "NSObject+Marshall.h"
 #import "LoxoService.h"
 
 //==============================================================================
-@interface HandsomeObject()
+@interface LembasObject()
     
 
 
@@ -18,7 +18,7 @@
 
 
 //==============================================================================
-@implementation HandsomeObject
+@implementation LembasObject
 @synthesize objectKey = objectKey;
 
 - (id)init
@@ -47,7 +47,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:rawData forKey:key];
 }
 
-+(HandsomeObject*)loadFromUserDefaults:(NSString *)key{
++(LembasObject*)loadFromUserDefaults:(NSString *)key{
     
     NSData * rawData = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if ( rawData != nil){
@@ -76,7 +76,7 @@
 @end
 
 //==============================================================================
-@implementation HandsomeObject (DataStore)
+@implementation LembasObject (DataStore)
 
 -(NSString *)urlWithService:(NSString *)service method:(NSString *)method{
     NSString * urlPath = [NSString stringWithFormat:@"%@%@/%@",_service.host, @"DataService", @"saveObject" ];
@@ -87,7 +87,7 @@
 
 //==============================================================================
 // GET
-+(HandsomeObject*)getObject:(NSString *)objectKey{
++(LembasObject*)getObject:(NSString *)objectKey{
     return nil; 
     
 }

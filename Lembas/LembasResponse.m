@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "HandsomeResponse.h"
+#import "LembasResponse.h"
 
-@implementation HandsomeResponse
+@implementation LembasResponse
 
 @synthesize status, info; 
 

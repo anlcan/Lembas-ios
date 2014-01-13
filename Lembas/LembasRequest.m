@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "HandsomeRequest.h"
+#import "LembasRequest.h"
 #import "RequestManager.h"
 #import "LoxoService.h"
 
-@implementation HandsomeRequest
+@implementation LembasRequest
 
 @synthesize failureBlock = __failureBlock;
 @synthesize completionBlock = __completionBlock;
@@ -94,7 +94,7 @@
 }
 
 
--(HandsomeResponse*)getHandsomeResponse{
+-(LembasResponse*)getHandsomeResponse{
     return response; 
 }
 

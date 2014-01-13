@@ -25,17 +25,23 @@
     
     //[RequestManager sharedManager].useSynchronousForTesting = YES;
     
+    
     LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];
     request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
-    request.tckNo = @"45062572021";
+    request.tckNo = @"35666140762";
     
-    request.completionBlock = ^(HandsomeRequest* req){
+    request.completionBlock = ^(LembasRequest* req){
         
         LoginResponse * response = (LoginResponse*)req.response;
         _NSLog(@"%@",response.merchant);
+        
+        RecentPaymentsRequest * payments = [[RecentPaymentsRequest alloc] initWithDelegate:self];
+        payments.merchantKey = response.merchant.objectKey;
+        
+        [payments run];
     };
     
-    request.failureBlock =^(HandsomeRequest* req, NSError * error){
+    request.failureBlock =^(LembasRequest* req, NSError * error){
         
         _NSLog(@"%@",error);
     };

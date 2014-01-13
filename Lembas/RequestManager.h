@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "HandsomeRequest.h"
+#import "LembasRequest.h"
 
 #import "AFNetworking.h"
 
@@ -23,22 +23,12 @@
 #define deviceIdKey		@"com.happyblueduck.handsome.deviceId"
 #define userAgentKey	@"com.happyblueduck.handsome.userAgent"
 
-//==============================================================================
-// security token signature length
-#define SIGNATURE_LENGTH	5
-
 
 //==============================================================================
 // HEADERS
 #define HANDSOME_HEADER_SOURCE		@"x-handsome-source"
 #define HANDSOME_HEADER_VERSION		@"x-handsome-version"
 #define HANDSOME_HEADER_TIME 		@"x-handsome-time"
-#define HANDSOME_HEADER_DEVICEID	@"x-handsome-deviceId"
-#define HANDSOME_HEADER_TOKEN		@"x-handsome-applicationToken"
-#define HANDSOME_HEADER_SECURITY	@"x-handsome-securityToken"
-
-
-#define HANDSOME_RESPONSE_OK		@"OK"
 
 //==============================================================================
 @interface HandsomeResponseSerializer : AFJSONResponseSerializer<AFURLRequestSerialization>
@@ -49,10 +39,7 @@
 //==============================================================================
 
 @interface RequestManager : NSObject <HandsomeRequestDelegate, UIWebViewDelegate> {
-    
-    NSOperationQueue 	* queue;
-    NSMutableDictionary * requestCache; 
-    
+        
     NSString * registerId;
 }
 @property (nonatomic, copy)NSString * userAgent;
@@ -61,9 +48,9 @@
 
 + (RequestManager*) sharedManager; 
 
--(void)addRequest:(HandsomeRequest*) req;
+-(void)addRequest:(LembasRequest*) req;
 -(void)setSession:(NSString *)newSession;
 
-
+-(void)addCertificate:(NSString *)name;
 
 @end

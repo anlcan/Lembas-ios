@@ -6,22 +6,26 @@
 //  Copyright (c) 2013 Anil Can Baykal. All rights reserved.
 //
 
-#import "HandsomeObject+REST.h"
+#import "LembasObject+REST.h"
 #import "NSObject+Marshall.h"
 const NSString * host;
 
-@implementation HandsomeObject (REST)
+@implementation LembasObject (REST)
+
+
 
 
 +(void)setHost:(NSString *)_host{
     host = [_host copy];
 }
 
-+(void)get:(NSString *)objectKey completion:(void (^)(BOOL succes, HandsomeObject* result)) comp{
+
+
++(void)get:(NSString *)objectKey completion:(void (^)(BOOL succes, LembasObject* result)) comp{
     
     NSString * type  = [NSString stringWithUTF8String:class_getName([self class])];
     
-    NSString * path = [NSString stringWithFormat:@"rest/api/%@/%@", type, objectKey];
+    NSString * path = [NSString stringWithFormat:@"/%@/%@", type, objectKey];
     NSString * url = [NSString stringWithFormat:@"%@%@",host, path];
 //    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url];
 //    AFHTTPRequestOperation * op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -31,7 +35,7 @@ const NSString * host;
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
-             HandsomeObject * obj = [NSObject deserialize:responseObject];
+             LembasObject * obj = [NSObject deserialize:responseObject];
              if ( obj != nil){
                  comp(YES, obj);
              } else {
@@ -45,10 +49,10 @@ const NSString * host;
 }
 
 
-+(void)remove:(HandsomeObject*)obj completion:(void (^)(BOOL success))comp{
++(void)remove:(LembasObject*)obj completion:(void (^)(BOOL success))comp{
     NSString * type  = [NSString stringWithUTF8String:class_getName([self class])];
     
-    NSString * path = [NSString stringWithFormat:@"rest/api/%@/%@", type, obj.objectKey];
+    NSString * path = [NSString stringWithFormat:@"/%@/%@", type, obj.objectKey];
     NSString * url = [NSString stringWithFormat:@"%@%@",host, path];
     //    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url];
     //    AFHTTPRequestOperation * op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -58,7 +62,7 @@ const NSString * host;
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
-             HandsomeObject * obj = [NSObject deserialize:responseObject];
+             LembasObject * obj = [NSObject deserialize:responseObject];
              if ( obj != nil){
                  comp(YES);
              } else {
@@ -72,10 +76,9 @@ const NSString * host;
  
 }
 
-+(void)put:(HandsomeObject*)obj completion:(void (^)(BOOL success, HandsomeObject * result))comp{
-    NSString * type  = [NSString stringWithUTF8String:class_getName([self class])];
++(void)put:(LembasObject*)obj completion:(void (^)(BOOL success, LembasObject * result))comp{
     
-    NSString * path = [NSString stringWithFormat:@"rest/api/%@", type];
+    NSString * path = [NSString stringWithFormat:@"/%@", [self getType]];
     NSString * url = [NSString stringWithFormat:@"%@%@",host, path];
     
     NSMutableURLRequest * request  =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -90,7 +93,7 @@ const NSString * host;
                                                                    success:^(AFHTTPRequestOperation *operation, id responseObject){
                                                                     
                                                                        _NSLog(@"JSON: %@", responseObject);
-                                                                       HandsomeObject * obj = [NSObject deserialize:responseObject];
+                                                                       LembasObject * obj = [NSObject deserialize:responseObject];
                                                                        if ( obj != nil){
                                                                            comp(YES, obj);
                                                                        } else {
@@ -105,13 +108,19 @@ const NSString * host;
     
 }
 
++(void)list:(void (^)(BOOL, NSArray *))comp path:(NSArray *)pathObjects{
 
-
-+(void)list:(void (^)(BOOL succes, NSArray * result)) comp{
-    NSString * type  = [NSString stringWithUTF8String:class_getName([self class])];
+    NSString * path = @"";
     
-    NSString * path = [NSString stringWithFormat:@"rest/api/%@", type];
-    NSString * url = [NSString stringWithFormat:@"%@%@",host, path];
+    for ( LembasObject* obj in pathObjects){
+        NSString * type  = [[NSString stringWithUTF8String:class_getName([obj class])] lowercaseString];
+        path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@" ,
+                                                     type, obj.objectKey]];
+        
+    }
+    
+    path = [path stringByAppendingPathComponent:[self getType]];
+    NSString * url = [host stringByAppendingPathComponent:path];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url
@@ -136,6 +145,44 @@ const NSString * host;
              NSLog(@"Error: %@", error);
              comp(NO, nil);
          }];
+    
+}
+
+
++(void)list:(void (^)(BOOL succes, NSArray * result)) comp{
+    
+    
+    NSString * path = [NSString stringWithFormat:@"/%@", [self getType]];
+    NSString * url = [NSString stringWithFormat:@"%@%@",host, path];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             
+             NSArray * _response = (NSArray*)responseObject;
+             NSMutableArray * result = [NSMutableArray arrayWithCapacity:[_response count]];
+             
+             for ( NSDictionary * dict  in _response){
+                 NSArray *obj = [NSObject deserialize:dict];
+                 [result addObject:obj];
+             }
+             if ( result != nil){
+                 comp(YES, result);
+             } else {
+                 comp(NO, nil);
+             }
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+             comp(NO, nil);
+         }];
+}
+
++(NSString *)getType{
+  NSString * type  = [[NSString stringWithUTF8String:class_getName([self class])] lowercaseString];
+    return type;
 }
 
 @end

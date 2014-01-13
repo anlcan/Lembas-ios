@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HandsomeRequest.h"
-#import "HandsomeResponse.h"
-#import "HandsomeCommons.h"
-#import "HandsomeObject.h"
+#import "LembasRequest.h"
+#import "LembasResponse.h"
+#import "LembasCommons.h"
+#import "LembasObject.h"
 
 @interface LoxoService : NSObject {
     NSString * _host;

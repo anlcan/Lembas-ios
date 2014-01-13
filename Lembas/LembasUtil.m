@@ -6,17 +6,17 @@
 //
 //
 
-#import "HandsomeUtil.h"
+#import "LembasUtil.h"
 #import "Debug.h"
 
-@implementation HandsomeUtil
+@implementation LembasUtil
 
-+(HandsomeUtil*)shared{
++(LembasUtil*)shared{
     
-    static HandsomeUtil *sharedInstance = nil;
+    static LembasUtil *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[HandsomeUtil alloc] init];
+        sharedInstance = [[LembasUtil alloc] init];
         // Do any other initialisation stuff here
     });
     return sharedInstance;
@@ -100,25 +100,25 @@
 
 //==============================================================================
 #pragma mark MDATE
-+(MDate*)mdateFromDate:(NSDate*)date{
++(LembasDate*)mdateFromDate:(NSDate*)date{
     
-    MDate * result = [MDate new];
-    result.time = [[HandsomeUtil shared].timeFormatter stringFromDate:date];
-    result.date = [[HandsomeUtil shared].dateFormatter stringFromDate:date];
+    LembasDate * result = [LembasDate new];
+    result.time = [[LembasUtil shared].timeFormatter stringFromDate:date];
+    result.date = [[LembasUtil shared].dateFormatter stringFromDate:date];
     
     return result;
 }
 
-+(NSDate*)dateFromMdate:(MDate*)mdate{
++(NSDate*)dateFromMdate:(LembasDate*)mdate{
     
     NSString * dateString = [NSString stringWithFormat:@"%@ %@%@",
                              mdate.time, mdate.date, mdate.zone];
     
-    NSDate* date = [[HandsomeUtil shared].dateFormatter dateFromString:dateString];
+    NSDate* date = [[LembasUtil shared].dateFormatter dateFromString:dateString];
     return date;
 }
 
-+(MDate*)now{
++(LembasDate*)now{
     return [self mdateFromDate:[NSDate date]];
 }
 

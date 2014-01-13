@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+Marshall.h"
-#import "HandsomeObject.h"
-#import "HandsomeResponse.h"
+#import "LembasObject.h"
+#import "LembasResponse.h"
 
-@class HandsomeRequest;
+@class LembasRequest;
 
 //==============================================================================
 @protocol HandsomeRequestDelegate <NSObject>
@@ -19,22 +19,22 @@
 @optional
 
 -(NSDictionary*) additionalHeaders;
--(void)requestWillStart:(HandsomeRequest*)req;
--(void)requestFailed:(HandsomeRequest*)req withError:(id)error;
--(void)requestFinished:(HandsomeRequest*)req withResponse:(HandsomeResponse*)resp;
+-(void)requestWillStart:(LembasRequest*)req;
+-(void)requestFailed:(LembasRequest*)req withError:(id)error;
+-(void)requestFinished:(LembasRequest*)req withResponse:(LembasResponse*)resp;
 
 @end
 
 
 //==============================================================================
-@interface HandsomeRequest : HandsomeObject {
+@interface LembasRequest : LembasObject {
 	
     NSString * host;
     
 @private
     
-    void (^__completionBlock)(HandsomeRequest* req);
-    void (^__failureBlock)(HandsomeRequest* req, NSError * error);
+    void (^__completionBlock)(LembasRequest* req);
+    void (^__failureBlock)(LembasRequest* req, NSError * error);
 
  	id<HandsomeRequestDelegate> __weak __delegate;
     NSURLConnection * __weak __httpRequest;
@@ -53,12 +53,12 @@
 @property (nonatomic, weak) id<HandsomeRequestDelegate> delegate;
 @property ( nonatomic, weak) NSURLConnection * httpRequest;
 
-@property (nonatomic, copy) void (^completionBlock)(HandsomeRequest* req);
-@property (nonatomic, copy) void (^failureBlock)(HandsomeRequest* req ,NSError * error);
+@property (nonatomic, copy) void (^completionBlock)(LembasRequest* req);
+@property (nonatomic, copy) void (^failureBlock)(LembasRequest* req ,NSError * error);
 
 
 @property (nonatomic) int statusCode;
-@property (nonatomic, strong)HandsomeResponse * response;
+@property (nonatomic, strong)LembasResponse * response;
 
 -(id)initWithDelegate:(id<HandsomeRequestDelegate>)d;
 
@@ -71,7 +71,7 @@
 
 -(void)cancel;
 
--(HandsomeResponse*)getHandsomeResponse;
+-(LembasResponse*)getHandsomeResponse;
 
 
 @end

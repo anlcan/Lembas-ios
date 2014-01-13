@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "OdeAl.h"
+#import "RequestManager.h"
 
-@interface HBDLembasTestTests : XCTestCase
+@interface HBDLembasTestTests : XCTestCase <HandsomeRequestDelegate>
 
 @end
 
@@ -28,7 +30,38 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+
+    
+    [RequestManager sharedManager].useSynchronousForTesting = YES;
+    
+    LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];
+    request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
+    request.tckNo = @"15763721406";
+    
+    request.completionBlock = ^(LembasRequest* req){
+        
+        LoginResponse * response = (LoginResponse*)req.response;
+        _NSLog(@"%@",response.merchant);
+    };
+    
+    request.failureBlock =^(LembasRequest* req, NSError * error){
+        
+        _NSLog(@"%@",error);
+    };
+    
+    
+    [request run];
+    
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+
+-(void)requestWillStart:(LembasRequest *)req{
+    _NSLog(@"%@",req);
+}
+
+-(void)requestFinished:(LembasRequest *)req withResponse:(LembasResponse *)resp{
+    _NSLog(@"%@",req);
 }
 
 @end

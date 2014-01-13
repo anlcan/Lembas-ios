@@ -6,7 +6,7 @@
 //
 
 #import "RequestManager.h"
-#import "HandsomeUtil.h"
+#import "LembasUtil.h"
 
 //==============================================================================
 @implementation HandsomeResponseSerializer
@@ -21,7 +21,7 @@
                                                           options:0
                                                             error:nil];
     
-    HandsomeResponse * res = nil;
+    LembasResponse * res = nil;
     NSString * resultKey 	= @"Result";
     NSString * errorKey 	= @"Error";
     
@@ -47,8 +47,8 @@
 //==============================================================================
 @interface RequestManager(Private)
 
--(void)requestSuccess:(HandsomeRequest*) req;
--(void)requestFailure:(HandsomeRequest *)req withError:(NSError*)error;
+-(void)requestSuccess:(LembasRequest*) req;
+-(void)requestFailure:(LembasRequest *)req withError:(NSError*)error;
 
 @end
 
@@ -79,29 +79,18 @@ static RequestManager *sharedInstance = nil;
     
     if (self) {
         
-        self.session = [HandsomeUtil generateUuidString];
+        self.session = [LembasUtil generateUuidString];
         registerId = [[NSUserDefaults standardUserDefaults] objectForKey:registerIdKey];
-               
-        
-        // Initialization code here.
-        queue = [[NSOperationQueue alloc] init];
-        [queue setMaxConcurrentOperationCount:1];
-        
+                               
         //self.userAgent = [[NSUserDefaults standardUserDefaults] objectForKey:userAgentKey];
         //if ( self.userAgent == nil)
         [self discoverUserAgent];
         
-        requestCache = [NSMutableDictionary new];        
     }
     
     return self;
 }
 
-- (void)dealloc {
-    
-    queue = nil;
-    requestCache = nil;
-}
 
 //==============================================================================
 // steal user agent from a dummy webview -
@@ -120,7 +109,7 @@ static RequestManager *sharedInstance = nil;
 
 
 //==============================================================================
-- (void) addRequest:(HandsomeRequest*) req {
+- (void) addRequest:(LembasRequest*) req {
 	// must be present on run time;
     req.session 	= self.session;
         
@@ -131,7 +120,6 @@ static RequestManager *sharedInstance = nil;
     NSURL * host = [req getHost]; 
     _ASSERT(nil!= host);
     NSURL * url = [host URLByAppendingPathComponent:req.verb]; 
-	
 	
     NSString * handsome_time = [NSString stringWithFormat:@"%.0f", [NSDate timeIntervalSinceReferenceDate]];
     
@@ -192,19 +180,19 @@ static RequestManager *sharedInstance = nil;
 
 
 
-        [self sendRequest:req toUrl:urlRequest];
+    [self sendRequest:req toUrl:urlRequest];
 
     
 }
 
--(void)sendRequest:(HandsomeRequest*)req toUrl:(NSURLRequest*)urlRequest{
+-(void)sendRequest:(LembasRequest*)req toUrl:(NSURLRequest*)urlRequest{
    
     
     if ( [req.delegate respondsToSelector:@selector(requestWillStart:)]){
         [req.delegate requestWillStart:req];
     }
     
-    __block HandsomeRequest* __req = req;
+    __block LembasRequest* __req = req;
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:urlRequest
                                                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                                                               
@@ -235,6 +223,10 @@ static RequestManager *sharedInstance = nil;
     
     operation.responseSerializer= [HandsomeResponseSerializer new];
     
+    if ([[urlRequest URL].host isEqualToString:@"localhost"]){
+        operation.securityPolicy.allowInvalidCertificates = YES;
+    }
+    
     if ( self.useSynchronousForTesting ){
         [operation start];
     } else {
@@ -260,13 +252,13 @@ static RequestManager *sharedInstance = nil;
 
 //==============================================================================
 // called when nsurlconnection is successfuly finished without failure
--(void)requestSuccess:(HandsomeRequest*) req{
+-(void)requestSuccess:(LembasRequest*) req{
     
     dispatch_async(dispatch_get_main_queue(), ^(){
         
         
         if ( req.completionBlock  != nil){
-            HandsomeRequest * __block _req = req;
+            LembasRequest * __block _req = req;
             req.completionBlock(_req);
         }
         
@@ -283,7 +275,7 @@ static RequestManager *sharedInstance = nil;
 
 //==============================================================================
 // called when http request is not 200 or HandsomeResult  is not OK
--(void)requestFailure:(HandsomeRequest *)req withError:(NSError*)error{
+-(void)requestFailure:(LembasRequest *)req withError:(NSError*)error{
     dispatch_async(dispatch_get_main_queue(), ^(){
         // call back time
         if (req.failureBlock != nil)

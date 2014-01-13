@@ -7,12 +7,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class HandsomeObject;
+@class LembasObject;
 @class LoxoService;
 
-typedef void(^HandsomeCallback)(HandsomeObject* object, NSError * error);
+typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
 
-@interface HandsomeObject : NSObject{
+@interface LembasObject : NSObject{
     
     NSString * objectKey;
     NSString * createDate;
@@ -26,13 +26,13 @@ typedef void(^HandsomeCallback)(HandsomeObject* object, NSError * error);
 
 -(void)store;
 -(void)storeInUserDefaults:(NSString *)key;
-+(HandsomeObject*)loadFromUserDefaults:(NSString *)key;
++(LembasObject*)loadFromUserDefaults:(NSString *)key;
 
 @end
 
 
 //==============================================================================
-@interface HandsomeObject (DataStore)
+@interface LembasObject (DataStore)
 
 //+(HandsomeObject*)getObject:(NSString *)objectKey;
 //

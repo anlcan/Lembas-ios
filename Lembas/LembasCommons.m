@@ -6,19 +6,19 @@
 //
 //
 
-#import "HandsomeCommons.h"
-#import "HandsomeUtil.h"
+#import "LembasCommons.h"
+#import "LembasUtil.h"
 
 //==============================================================================
 #pragma mark MDate
 
-@implementation MDate
+@implementation LembasDate
 @synthesize date;
 @synthesize time;
 @synthesize zone;
 
 -(NSDate*)nsdate{
-    return [HandsomeUtil dateFromMdate:self];
+    return [LembasUtil dateFromMdate:self];
 }
 
 -(void)dealloc{
@@ -32,7 +32,7 @@
 
 //==============================================================================
 #pragma mark InnerFault
-@implementation InnerFault
+@implementation LembasFault
 
 @synthesize stacktrace;
 @synthesize message;

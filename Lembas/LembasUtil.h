@@ -11,12 +11,12 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
-#include "HandsomeCommons.h"
+#include "LembasCommons.h"
 /*
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 */
-@interface HandsomeUtil : NSObject
+@interface LembasUtil : NSObject
 
 @property (nonatomic, retain) NSDateFormatter * timeFormatter;
 @property (nonatomic, retain) NSDateFormatter * dateFormatter;
@@ -32,9 +32,9 @@
 
 //==============================================================================
 // MDATE
-+(NSDate*)dateFromMdate:(MDate*)mdate;
-+(MDate*)mdateFromDate:(NSDate*)date;
-+(MDate*)now;
++(NSDate*)dateFromMdate:(LembasDate*)mdate;
++(LembasDate*)mdateFromDate:(NSDate*)date;
++(LembasDate*)now;
 
 
 @end

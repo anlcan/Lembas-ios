@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HandsomeObject.h"
-#import "HandsomeResponse.h"
+#import "LembasObject.h"
+#import "LembasResponse.h"
 
 //==============================================================================
-@interface MDate : HandsomeObject {
+@interface LembasDate : LembasObject {
     
 }
 @property(nonatomic, retain) NSString * date;
@@ -23,7 +23,7 @@
 
 
 //==============================================================================
-@interface InnerFault : HandsomeResponse {
+@interface LembasFault : LembasResponse {
     
 }
 @property(nonatomic, retain) NSString * stacktrace;
@@ -36,7 +36,7 @@
 
 
 //==============================================================================
-@interface MFile : HandsomeObject {
+@interface MFile : LembasObject {
     
 }
 @property (nonatomic, retain) NSData * data;

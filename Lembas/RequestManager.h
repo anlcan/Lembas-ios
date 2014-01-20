@@ -31,6 +31,14 @@
 #define HANDSOME_HEADER_TIME 		@"x-handsome-time"
 
 //==============================================================================
+// NOTIFICATIONS
+// every notification will have a LembasRequest instance as object
+extern NSString * const RequestManagerWillSendRequestNotification;
+extern NSString * const RequestManagerDidSendRequestNotification;
+extern NSString * const RequestManagerDidReceivedResponseNotification;
+
+//==============================================================================
+//  AFNetworking serializer
 @interface HandsomeResponseSerializer : AFJSONResponseSerializer<AFURLRequestSerialization>
 
 @end

@@ -40,7 +40,7 @@
 		966391E118698EBC00EE258B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918B18698EBC00EE258B /* NSData+Base64.m */; };
 		966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918D18698EBC00EE258B /* NSObject+Marshall.m */; };
 		966391E318698EBC00EE258B /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918F18698EBC00EE258B /* RequestManager.m */; };
-		966391F31869AA9400EE258B /* OdeAl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966391F21869AA9400EE258B /* OdeAl.m */; };
+		96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E63557188D2E4D00B8C386 /* OdeAl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +113,8 @@
 		9663918D18698EBC00EE258B /* NSObject+Marshall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Marshall.m"; sourceTree = "<group>"; };
 		9663918E18698EBC00EE258B /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
 		9663918F18698EBC00EE258B /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
-		966391F11869AA9400EE258B /* OdeAl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OdeAl.h; sourceTree = "<group>"; };
-		966391F21869AA9400EE258B /* OdeAl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OdeAl.m; sourceTree = "<group>"; };
+		96E63556188D2E4D00B8C386 /* OdeAl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OdeAl.h; sourceTree = "<group>"; };
+		96E63557188D2E4D00B8C386 /* OdeAl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OdeAl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 		966390BF18698E9C00EE258B /* HBDLembasTest */ = {
 			isa = PBXGroup;
 			children = (
-				966391F01869AA9400EE258B /* odeal */,
+				96E63555188D2E4D00B8C386 /* odeal */,
 				966390EE18698EAC00EE258B /* Lembas */,
 				966390C818698E9C00EE258B /* HBDAppDelegate.h */,
 				966390C918698E9C00EE258B /* HBDAppDelegate.m */,
@@ -297,14 +297,13 @@
 			path = "NSData+Base64";
 			sourceTree = "<group>";
 		};
-		966391F01869AA9400EE258B /* odeal */ = {
+		96E63555188D2E4D00B8C386 /* odeal */ = {
 			isa = PBXGroup;
 			children = (
-				966391F11869AA9400EE258B /* OdeAl.h */,
-				966391F21869AA9400EE258B /* OdeAl.m */,
+				96E63556188D2E4D00B8C386 /* OdeAl.h */,
+				96E63557188D2E4D00B8C386 /* OdeAl.m */,
 			);
-			name = odeal;
-			path = ../../../../handsomeTest/odeal;
+			path = odeal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +407,7 @@
 				9663919218698EBC00EE258B /* AFHTTPRequestOperation.m in Sources */,
 				966391E118698EBC00EE258B /* NSData+Base64.m in Sources */,
 				966390D018698E9C00EE258B /* HBDViewController.m in Sources */,
-				966391F31869AA9400EE258B /* OdeAl.m in Sources */,
+				96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */,
 				966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */,
 				9663919318698EBC00EE258B /* AFHTTPRequestOperationManager.m in Sources */,
 				9663919518698EBC00EE258B /* AFNetworkReachabilityManager.m in Sources */,

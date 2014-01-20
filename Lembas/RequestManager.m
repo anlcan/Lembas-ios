@@ -8,6 +8,11 @@
 #import "RequestManager.h"
 #import "LembasUtil.h"
 
+NSString * const RequestManagerWillSendRequestNotification 	= @"com.happyblueduck.lembas.willSendRequest";
+NSString * const RequestManagerDidSendRequestNotification	=  @"com.happyblueduck.lembas.didSendRequest";
+NSString * const RequestManagerDidReceivedResponseNotification = @"com.happyblueduck.lembas.didReceivedResponse";
+
+
 //==============================================================================
 @implementation HandsomeResponseSerializer
 
@@ -110,6 +115,8 @@ static RequestManager *sharedInstance = nil;
 
 //==============================================================================
 - (void) addRequest:(LembasRequest*) req {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerWillSendRequestNotification object:req];
 	// must be present on run time;
     req.session 	= self.session;
         
@@ -179,8 +186,9 @@ static RequestManager *sharedInstance = nil;
     [urlRequest setHTTPBody:output];
 
 
-
     [self sendRequest:req toUrl:urlRequest];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidSendRequestNotification
+                                                        object:req];
 
     
 }
@@ -196,16 +204,17 @@ static RequestManager *sharedInstance = nil;
     AFHTTPRequestOperation * operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:urlRequest
                                                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                                                               
+                                                                                                              
                                                                                                               NSHTTPURLResponse * response = operation.response;
                                                                                                               _NSLog(@"<HANDSOME:%@>:response received", response.URL.path.lastPathComponent);
                                                                                                               // server response
                                                                                                               __req.statusCode = [(NSHTTPURLResponse *)response statusCode];
-                                                                                                              
                                                                                                               __req.requestDuration = [NSDate timeIntervalSinceReferenceDate] - __req.startTime;
-                                                                                                              
                                                                                                               __req.response = responseObject;
-                                                                                                              if ( __req.statusCode == 212){
-                                                                                                                  NSError * error = [[NSError alloc] initWithDomain:@"" code:212 userInfo:nil];
+                                                                                                              
+                                                                                                              
+                                                                                                              if ( __req.statusCode < 200 || req.statusCode > 399 || [__req.response isKindOfClass:[LembasFault class]]){
+                                                                                                                  NSError * error = [[NSError alloc] initWithDomain:@"" code:__req.statusCode userInfo:nil];
                                                                                                                   [self requestFailure:req withError:error];
                                                                                                               } else {
                                                                                                               
@@ -256,6 +265,8 @@ static RequestManager *sharedInstance = nil;
     
     dispatch_async(dispatch_get_main_queue(), ^(){
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidReceivedResponseNotification
+                                                            object:req];
         
         if ( req.completionBlock  != nil){
             LembasRequest * __block _req = req;
@@ -277,6 +288,9 @@ static RequestManager *sharedInstance = nil;
 // called when http request is not 200 or HandsomeResult  is not OK
 -(void)requestFailure:(LembasRequest *)req withError:(NSError*)error{
     dispatch_async(dispatch_get_main_queue(), ^(){
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidReceivedResponseNotification
+                                                            object:req];
         // call back time
         if (req.failureBlock != nil)
             req.failureBlock(req, error);

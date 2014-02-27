@@ -46,7 +46,11 @@
         _NSLog(@"%@",error);
     };
     
+    [request setEndPointHost:@"http://amazon.ode.al:8080/test"];
     [request run];
+    
+    LoginRequest * request2 = [[LoginRequest alloc] initWithDelegate:self];
+    [request2 run];
 }
 
 - (void)didReceiveMemoryWarning

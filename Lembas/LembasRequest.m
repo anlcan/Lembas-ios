@@ -81,15 +81,16 @@
 
 }
 
--(void)setEndPointHost:(NSString *)_host{
-    // PASS
+-(void)setEndPointHost:(NSString *)aHost{
+    host = [aHost copy];
 }
 
 - (NSURL*) getHost{
-    if ( self.service)
-        return  [NSURL URLWithString:self.service.host];
-    else
+    if ( host != nil)
         return [NSURL URLWithString:host];
+    else
+        return  [NSURL URLWithString:self.service.host];
+
     
 }
 

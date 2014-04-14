@@ -90,6 +90,18 @@ static RequestManager *sharedInstance = nil;
         //self.userAgent = [[NSUserDefaults standardUserDefaults] objectForKey:userAgentKey];
         //if ( self.userAgent == nil)
         [self discoverUserAgent];
+
+        self.additionalHeaders = [NSMutableDictionary dictionaryWithCapacity:2];
+        [self.additionalHeaders setObject:@"iOS" forKey:HANDSOME_HEADER_SOURCE];
+        [self.additionalHeaders setObject:@"Content-Type" forKey:@"application/json; charset=utf-8"];
+#ifdef VERSION
+        
+        // IF  YOU WANT TO UPDATE VERSION GOTO **build.sh**
+        NSString * VERSION_STRING = @"" MACRO_VALUE_TO_STRING(VERSION) "";
+        [self.additionalHeaders setObject:VERSION_STRING
+                                   forKey:HANDSOME_HEADER_VERSION];
+#endif
+        
         
     }
     
@@ -147,23 +159,9 @@ static RequestManager *sharedInstance = nil;
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setHTTPMethod:@"POST"];
     
-    [urlRequest addValue:@"application/json; charset=utf-8"
-      forHTTPHeaderField:@"Content-Type"];
-    
     [urlRequest addValue:handsome_time
       forHTTPHeaderField:HANDSOME_HEADER_TIME];
-    
-    
-    [urlRequest addValue:@"iOS"
-      forHTTPHeaderField:HANDSOME_HEADER_SOURCE];
 
-#ifdef VERSION
-    
-    // IF  YOU WANT TO UPDATE VERSION GOTO **build.sh**
-    NSString * VERSION_STRING = @"" MACRO_VALUE_TO_STRING(VERSION) "";
-    [urlRequest addValue:VERSION_STRING
-      forHTTPHeaderField:HANDSOME_HEADER_VERSION];
-#endif
     
         
 #ifdef TOKEN
@@ -184,8 +182,20 @@ static RequestManager *sharedInstance = nil;
 #endif
 
     [urlRequest setHTTPBody:output];
+    
+    // adding  headers
+    for ( NSString * key in [self.additionalHeaders allKeys]){
+        [urlRequest addValue:[self.additionalHeaders objectForKey:key]
+          forHTTPHeaderField:key];
+    }
+    
+    // adding request headers
+    for ( NSString * key in [req.additionalHeaders allKeys]){
+        [urlRequest addValue:[req.additionalHeaders objectForKey:key]
+          forHTTPHeaderField:key];
+    }
 
-
+    
     [self sendRequest:req toUrl:urlRequest];
     [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidSendRequestNotification
                                                         object:req];

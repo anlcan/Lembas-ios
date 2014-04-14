@@ -53,7 +53,7 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
 @property (nonatomic, copy)NSString * userAgent;
 @property (nonatomic, strong) NSString * session;
 @property (nonatomic) BOOL useSynchronousForTesting;
-
+@property (nonatomic, strong) NSMutableDictionary * additionalHeaders;
 + (RequestManager*) sharedManager; 
 
 -(void)addRequest:(LembasRequest*) req;

@@ -29,7 +29,8 @@
     
     if (self) {
     	
-        self.delegate = d;        
+        self.delegate = d;
+        self.additionalHeaders = [NSMutableDictionary dictionaryWithCapacity:0];
     }
     
     return self;

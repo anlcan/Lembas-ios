@@ -28,7 +28,8 @@
     
     LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];
     request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
-    request.tckNo = @"35666140762";
+    request.tckNo = @"35666140762";    
+    [request.additionalHeaders setObject:@"FUCK YEAH" forKey:@"X-TELERA-OH-YEAH"];
     
     request.completionBlock = ^(LembasRequest* req){
         
@@ -46,7 +47,7 @@
         _NSLog(@"%@",error);
     };
     
-    [request setEndPointHost:@"http://amazon.ode.al:8080/test"];
+//    [request setEndPointHost:@"http://localhost:8888/OdeAl"];
     [request run];
     
     LoginRequest * request2 = [[LoginRequest alloc] initWithDelegate:self];

@@ -1,5 +1,5 @@
-NSString * const OdeAlHost		= @"http://localhost:8080/";
-NSString * const OdeAlEndPoint		= @"http://localhost:8080/OdeAl/";
+NSString * const OdeAlHost		= @"http://localhost:8888/";
+NSString * const OdeAlEndPoint		= @"http://localhost:8888/OdeAl/";
 
 #import "OdeAl.h"
 

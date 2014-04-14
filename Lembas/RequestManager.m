@@ -92,8 +92,10 @@ static RequestManager *sharedInstance = nil;
         [self discoverUserAgent];
 
         self.additionalHeaders = [NSMutableDictionary dictionaryWithCapacity:2];
-        [self.additionalHeaders setObject:@"iOS" forKey:HANDSOME_HEADER_SOURCE];
-        [self.additionalHeaders setObject:@"Content-Type" forKey:@"application/json; charset=utf-8"];
+        [self.additionalHeaders setObject:@"iOS"
+                                   forKey:HANDSOME_HEADER_SOURCE];
+        [self.additionalHeaders setObject:@"application/json; charset=utf-8"
+                                   forKey:@"Content-Type"];
 #ifdef VERSION
         
         // IF  YOU WANT TO UPDATE VERSION GOTO **build.sh**

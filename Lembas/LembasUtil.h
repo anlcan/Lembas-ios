@@ -19,8 +19,9 @@
 @interface LembasUtil : NSObject
 
 @property (nonatomic, retain) NSDateFormatter * timeFormatter;
+@property (nonatomic, retain) NSDateFormatter * mdateFormatter;
 @property (nonatomic, retain) NSDateFormatter * dateFormatter;
-
+@property (nonatomic, retain) NSDateFormatter * zoneFormatter;
 
 // UTIL METHODS
 +(NSString *)generateUuidString;

@@ -14,15 +14,16 @@ typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
 
 @interface LembasObject : NSObject{
     
-    NSString * objectKey;
-    NSString * createDate;
-    NSString * updateDate;
         
     void (^_saveSuccessBlock)();
 }
 
 @property (nonatomic, assign) LoxoService * service;
 @property (nonatomic, copy)  NSString * objectKey;
+
+@property (nonatomic, copy)  NSString * createDate;
+@property (nonatomic, copy)  NSString * updateDate;
+
 
 -(void)store;
 -(void)storeInUserDefaults:(NSString *)key;

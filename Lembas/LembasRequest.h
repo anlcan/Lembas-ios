@@ -59,7 +59,7 @@
 @property (nonatomic, copy) void (^failureBlock)(LembasRequest* req ,NSError * error);
 
 
-@property (nonatomic) int statusCode;
+@property (nonatomic) NSInteger statusCode;
 @property (nonatomic, strong)LembasResponse * response;
 
 -(id)initWithDelegate:(id<HandsomeRequestDelegate>)d;

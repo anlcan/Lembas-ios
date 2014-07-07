@@ -12,6 +12,9 @@ NSString * const RequestManagerWillSendRequestNotification 	= @"com.happyblueduc
 NSString * const RequestManagerDidSendRequestNotification	=  @"com.happyblueduck.lembas.didSendRequest";
 NSString * const RequestManagerDidReceivedResponseNotification = @"com.happyblueduck.lembas.didReceivedResponse";
 
+NSString * const LembasPayloadResultKey = @"Result";
+NSString * const LembasRequestKey 		= @"request";
+NSString * const LmbasPayloadErrorKey 	= @"Error";
 
 //==============================================================================
 @implementation HandsomeResponseSerializer
@@ -27,14 +30,13 @@ NSString * const RequestManagerDidReceivedResponseNotification = @"com.happyblue
                                                             error:nil];
     
     LembasResponse * res = nil;
-    NSString * resultKey 	= @"Result";
-    NSString * errorKey 	= @"Error";
+
     
-    NSDictionary * result = [dict objectForKey:resultKey];
+    NSDictionary * result = [dict objectForKey:LembasPayloadResultKey];
     if ( result != nil)
     	res = [NSObject deserialize:result];
-    else if ( [dict objectForKey:errorKey]) {
-        res = [NSObject deserialize:[dict objectForKey:errorKey]];
+    else if ( [dict objectForKey:LmbasPayloadErrorKey]) {
+        res = [NSObject deserialize:[dict objectForKey:LmbasPayloadErrorKey]];
         
     }
     
@@ -127,7 +129,9 @@ static RequestManager *sharedInstance = nil;
 
 
 
+
 //==============================================================================
+//
 - (void) addRequest:(LembasRequest*) req {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerWillSendRequestNotification object:req];
@@ -144,7 +148,7 @@ static RequestManager *sharedInstance = nil;
 	
     NSString * handsome_time = [NSString stringWithFormat:@"%.0f", [NSDate timeIntervalSinceReferenceDate]];
     
-	NSString * key 		= @"request";         
+	NSString * key 		= LembasRequestKey;
 	NSDictionary * data = [NSObject serialize:req];
      	
 	NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:data, key,  nil]; 
@@ -197,8 +201,8 @@ static RequestManager *sharedInstance = nil;
           forHTTPHeaderField:key];
     }
 
-    
     [self sendRequest:req toUrl:urlRequest];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidSendRequestNotification
                                                         object:req];
 
@@ -212,35 +216,36 @@ static RequestManager *sharedInstance = nil;
         [req.delegate requestWillStart:req];
     }
     
+    
     __block LembasRequest* __req = req;
-    AFHTTPRequestOperation * operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:urlRequest
-                                                                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                                                              
-                                                                                                              
-                                                                                                              NSHTTPURLResponse * response = operation.response;
-                                                                                                              _NSLog(@"<HANDSOME:%@>:response received", response.URL.path.lastPathComponent);
-                                                                                                              // server response
-                                                                                                              __req.statusCode = [(NSHTTPURLResponse *)response statusCode];
-                                                                                                              __req.requestDuration = [NSDate timeIntervalSinceReferenceDate] - __req.startTime;
-                                                                                                              __req.response = responseObject;
-                                                                                                              
-                                                                                                              
-                                                                                                              if ( __req.statusCode < 200 || req.statusCode > 399 || [__req.response isKindOfClass:[LembasFault class]]){
-                                                                                                                  NSError * error = [[NSError alloc] initWithDomain:@"" code:__req.statusCode userInfo:nil];
-                                                                                                                  [self requestFailure:req withError:error];
-                                                                                                              } else {
-                                                                                                              
-                                                                                                                  [self requestSuccess:req];
-                                                                                                              }
-                                                                                                              
-                                                                                                          }
+    AFHTTPRequestOperationManager * manager =[AFHTTPRequestOperationManager manager] ;
+    AFHTTPRequestOperation * operation = [manager HTTPRequestOperationWithRequest:urlRequest
+                                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                              
+                                                                              NSHTTPURLResponse * response = operation.response;
+                                                                              _NSLog(@"<HANDSOME:%@>:response received", response.URL.path.lastPathComponent);
+                                                                              // server response
+                                                                              __req.statusCode = [(NSHTTPURLResponse *)response statusCode];
+                                                                              __req.requestDuration = [NSDate timeIntervalSinceReferenceDate] - __req.startTime;
+                                                                              __req.response = responseObject;
+                                                                              
+                                                                              
+                                                                       if ( __req.statusCode < 200 || req.statusCode > 399 || [__req.response isKindOfClass:[LembasFault class]]){
+                                                                           NSError * error = [[NSError alloc] initWithDomain:@"" code:__req.statusCode userInfo:nil];
+                                                                           [self requestFailure:req withError:error];
+                                                                       } else {
+                                                                           
+                                                                           [self requestSuccess:req];
+                                                                       }
+                                                                              
+                                                                          }
                                           
-                                                                                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                                                              _NSLog(@"<HANDSOME:%@>:error received", error.localizedDescription);
-                                                                                                              
-                                                                                                              req.statusCode = error.code;
-                                                                                                              [self requestFailure:req withError:error];
-                                                                                                          }];
+                                                                          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                              _NSLog(@"<HANDSOME:%@>:error received", error.localizedDescription);
+                                                                              
+                                                                              req.statusCode = error.code;
+                                                                              [self requestFailure:req withError:error];
+                                                                          }];
     
     operation.responseSerializer= [HandsomeResponseSerializer new];
     
@@ -248,12 +253,7 @@ static RequestManager *sharedInstance = nil;
         operation.securityPolicy.allowInvalidCertificates = YES;
     }
     
-    if ( self.useSynchronousForTesting ){
-        [operation start];
-    } else {
-    
-        [[AFHTTPRequestOperationManager manager].operationQueue addOperation:operation];
-    }
+    [manager.operationQueue addOperation:operation];
 }
 
 -(void)addCertificate:(NSString *)name{
@@ -315,5 +315,9 @@ static RequestManager *sharedInstance = nil;
         
     });
 }
+
+
+
+
 
 @end

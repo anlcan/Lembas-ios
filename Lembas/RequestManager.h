@@ -50,9 +50,19 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
         
     NSString * registerId;
 }
+/**
+ * preferred USER-AGENT to send to backend. if null, will be fetch from UIWebView
+ */
 @property (nonatomic, copy)NSString * userAgent;
+
+/**
+ * unique session ID, can be used with Google Analytics or other tools sessions
+ */
 @property (nonatomic, strong) NSString * session;
-@property (nonatomic) BOOL useSynchronousForTesting;
+
+/**
+ * additional headers to send with every Lembas Request
+ */
 @property (nonatomic, strong) NSMutableDictionary * additionalHeaders;
 + (RequestManager*) sharedManager; 
 
@@ -62,3 +72,4 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
 -(void)addCertificate:(NSString *)name;
 
 @end
+

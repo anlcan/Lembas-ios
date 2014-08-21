@@ -25,9 +25,15 @@ NSString * const LmbasPayloadErrorKey 	= @"Error";
     
     
     // deserialize jsonstring
+    NSError * jsonError = nil;
     NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data
                                                           options:0
-                                                            error:nil];
+                                                            error:&jsonError];
+    
+    if ( jsonError != nil){
+        NSString * dataString = [NSString stringWithUTF8String:data.bytes];
+        NSLog(@"error parsing server result:%@", dataString);
+    }
     
     LembasResponse * res = nil;
 

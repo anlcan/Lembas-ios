@@ -60,6 +60,12 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
  */
 @property (nonatomic, strong) NSString * session;
 
+
+/**
+ *  if set to YES, underliying AFNetwotrking will pincertificate
+ */
+@property (nonatomic) BOOL shouldPinCertificate;
+
 /**
  * additional headers to send with every Lembas Request
  */
@@ -69,7 +75,6 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
 -(void)addRequest:(LembasRequest*) req;
 -(void)setSession:(NSString *)newSession;
 
--(void)addCertificate:(NSString *)name;
 
 @end
 

@@ -224,7 +224,13 @@ static RequestManager *sharedInstance = nil;
     
     
     __block LembasRequest* __req = req;
-    AFHTTPRequestOperationManager * manager =[AFHTTPRequestOperationManager manager] ;
+    AFHTTPRequestOperationManager * manager =[AFHTTPRequestOperationManager manager];
+    if ( self.shouldPinCertificate){
+        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+        manager.securityPolicy.allowInvalidCertificates = NO;
+        manager.securityPolicy.validatesDomainName = NO;
+        manager.securityPolicy.validatesCertificateChain = NO;
+    }
     AFHTTPRequestOperation * operation = [manager HTTPRequestOperationWithRequest:urlRequest
                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                               
@@ -262,20 +268,7 @@ static RequestManager *sharedInstance = nil;
     [manager.operationQueue addOperation:operation];
 }
 
--(void)addCertificate:(NSString *)name{
-    NSString *certPath = [[NSBundle mainBundle] pathForResource:name ofType:@"cer"];
-    NSCAssert(certPath != nil, @"Path for certificate should not be nil");
-    NSData *certData = [NSData dataWithContentsOfFile:certPath];
-    
-    SecCertificateRef certificate = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)(certData));
-    
-    AFSecurityPolicy * policy = [[AFSecurityPolicy alloc] init];
-    [policy setPinnedCertificates:@[(__bridge_transfer NSData *)SecCertificateCopyData(certificate)]];
-    policy.SSLPinningMode = AFSSLPinningModeCertificate;
-    
-    [AFHTTPRequestOperationManager manager].securityPolicy = policy;
-    
-}
+
 
 //==============================================================================
 // called when nsurlconnection is successfuly finished without failure

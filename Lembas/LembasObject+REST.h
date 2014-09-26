@@ -1,5 +1,5 @@
 //
-//  NSObject+HandsomeObject_REST_.h
+//  LEMBASObject_REST_.h
 //  OdeAlClient
 //
 //  Created by Anil Can Baykal on 12/16/13.

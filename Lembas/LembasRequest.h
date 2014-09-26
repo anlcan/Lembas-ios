@@ -14,7 +14,7 @@
 @class LembasRequest;
 
 //==============================================================================
-@protocol HandsomeRequestDelegate <NSObject>
+@protocol LembasRequestDelegate <NSObject>
 
 @optional
 
@@ -36,7 +36,7 @@
     void (^__completionBlock)(LembasRequest* req);
     void (^__failureBlock)(LembasRequest* req, NSError * error);
 
- 	id<HandsomeRequestDelegate> __weak __delegate;
+    id<LembasRequestDelegate> __weak __delegate;
     NSURLConnection * __weak __httpRequest;
     NSString * __token;
     
@@ -52,7 +52,7 @@
 @property (nonatomic, strong) NSString *registerId; // given by a Handsome Register Response
 @property (nonatomic, strong) NSString *deviceId;   // generated once for device. pseudo-random UDID
 
-@property (nonatomic, weak) id<HandsomeRequestDelegate> delegate;
+@property (nonatomic, weak) id<LembasRequestDelegate> delegate;
 @property ( nonatomic, weak) NSURLConnection * httpRequest;
 
 @property (nonatomic, copy) void (^completionBlock)(LembasRequest* req);
@@ -62,7 +62,7 @@
 @property (nonatomic) NSInteger statusCode;
 @property (nonatomic, strong)LembasResponse * response;
 
--(id)initWithDelegate:(id<HandsomeRequestDelegate>)d;
+-(id)initWithDelegate:(id<LembasRequestDelegate>)d;
 
 -(void)run;
 -(void)done;

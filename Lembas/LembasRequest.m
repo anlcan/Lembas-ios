@@ -23,7 +23,7 @@
 @synthesize delegate 	= __delegate;
 
 
-- (id)initWithDelegate:(id<HandsomeRequestDelegate>)d {
+- (id)initWithDelegate:(id<LembasRequestDelegate>)d {
 	
     self = [super init];
     

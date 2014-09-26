@@ -1,5 +1,5 @@
 //
-//  HandsomeObject.m
+//  LembasObject.m
 //
 //  Created by Anil Can Baykal on 3/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -58,7 +58,7 @@
         if ( error == nil)
             return [NSObject deserialize:dict];
         else
-            NSLog(@"failed to load HandsomeObject from store:%@",key);
+            NSLog(@"failed to load LembasObject from store:%@",key);
     }
     
     return nil;
@@ -98,7 +98,7 @@
     [self saveWithTarget:nil andSelector:nil];
 }
 
--(void)saveWithCallback:(HandsomeCallback)callback{
+-(void)saveWithCallback:(LembasCallback)callback{
     [self saveWithTarget:nil andSelector:nil];
 }
 
@@ -116,7 +116,7 @@
     
     [request setHTTPBody:[NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:&error]];
     if ( error != nil) {
-        NSLog(@"failed to serialize HandsomeObject %@: %@\nAborting...",self, error.localizedDescription);
+        NSLog(@"failed to serialize LembasObject %@: %@\nAborting...",self, error.localizedDescription);
         return;
     }    
     
@@ -128,10 +128,10 @@
                                                                   options:0
                                                                     error:nil];
             
-            _NSLog(@"<HANDSOME:%@>:response received", dict);
+            _NSLog(@"<Lembas:%@>:response received", dict);
         } else {
             NSString * result = [NSString stringWithUTF8String:data.bytes];
-            _NSLog(@"<HANDSOME> response failed %@", result);
+            _NSLog(@"<Lembas> response failed %@", result);
         }
 
     }];}

@@ -1,6 +1,6 @@
 //
-//  HandsomeUtil.m
-//  HandsomeLibrary
+//  LembasUtil.m
+//  LembasLibrary
 //
 //  Created by Anil Can Baykal on 11/23/12.
 //

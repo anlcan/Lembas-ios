@@ -10,7 +10,7 @@
 @class LembasObject;
 @class LoxoService;
 
-typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
+typedef void(^LembasCallback)(LembasObject* object, NSError * error);
 
 @interface LembasObject : NSObject{
     
@@ -35,16 +35,16 @@ typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
 //==============================================================================
 @interface LembasObject (DataStore)
 
-//+(HandsomeObject*)getObject:(NSString *)objectKey;
+//+(LembasObject*)getObject:(NSString *)objectKey;
 //
 //-(void)save;
-//-(void)saveWithCallback:(HandsomeCallback)callback;
+//-(void)saveWithCallback:(LembasCallback)callback;
 //-(void)saveWithTarget:(id)target andSelector:(SEL)selector;
 //
 //-(void)remove;
 //-(void)removeWithTarget:(id)target andSelector:(SEL)selector;
 
-//+(void)listHandsomeObjects:(NSString *)className target:(id)target selector:(SEL)selector;
-//+(void)listHandsomeObjects:(NSString *)className complete:(HandsomeUserQueryCallBack)callback;
+//+(void)listLembasObjects:(NSString *)className target:(id)target selector:(SEL)selector;
+//+(void)listLembasObjects:(NSString *)className complete:(HandsomeUserQueryCallBack)callback;
 
 @end

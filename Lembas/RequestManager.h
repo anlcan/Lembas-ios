@@ -46,7 +46,7 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
 
 //==============================================================================
 
-@interface RequestManager : NSObject <HandsomeRequestDelegate, UIWebViewDelegate> {
+@interface RequestManager : NSObject <LembasRequestDelegate, UIWebViewDelegate> {
         
     NSString * registerId;
 }

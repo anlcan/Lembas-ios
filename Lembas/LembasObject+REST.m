@@ -1,5 +1,5 @@
 //
-//  NSObject+HandsomeObject_REST_.m
+//  NSObject+LEMBAS.m
 //  OdeAlClient
 //
 //  Created by Anil Can Baykal on 12/16/13.

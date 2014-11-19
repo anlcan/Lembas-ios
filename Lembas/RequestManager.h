@@ -46,19 +46,35 @@ extern NSString * const RequestManagerDidReceivedResponseNotification;
 
 //==============================================================================
 
-@interface RequestManager : NSObject <HandsomeRequestDelegate, UIWebViewDelegate> {
+@interface RequestManager : NSObject <LembasRequestDelegate, UIWebViewDelegate> {
         
     NSString * registerId;
 }
+/**
+ * preferred USER-AGENT to send to backend. if null, will be fetch from UIWebView
+ */
 @property (nonatomic, copy)NSString * userAgent;
+
+/**
+ * unique session ID, can be used with Google Analytics or other tools sessions
+ */
 @property (nonatomic, strong) NSString * session;
-@property (nonatomic) BOOL useSynchronousForTesting;
+
+
+/**
+ *  if set to YES, underliying AFNetwotrking will pincertificate
+ */
+@property (nonatomic) BOOL shouldPinCertificate;
+
+/**
+ * additional headers to send with every Lembas Request
+ */
 @property (nonatomic, strong) NSMutableDictionary * additionalHeaders;
 + (RequestManager*) sharedManager; 
 
 -(void)addRequest:(LembasRequest*) req;
 -(void)setSession:(NSString *)newSession;
 
--(void)addCertificate:(NSString *)name;
 
 @end
+

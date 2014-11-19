@@ -10,19 +10,20 @@
 @class LembasObject;
 @class LoxoService;
 
-typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
+typedef void(^LembasCallback)(LembasObject* object, NSError * error);
 
 @interface LembasObject : NSObject{
     
-    NSString * objectKey;
-    NSString * createDate;
-    NSString * updateDate;
         
     void (^_saveSuccessBlock)();
 }
 
 @property (nonatomic, assign) LoxoService * service;
 @property (nonatomic, copy)  NSString * objectKey;
+
+@property (nonatomic, copy)  NSString * createDate;
+@property (nonatomic, copy)  NSString * updateDate;
+
 
 -(void)store;
 -(void)storeInUserDefaults:(NSString *)key;
@@ -31,19 +32,3 @@ typedef void(^HandsomeCallback)(LembasObject* object, NSError * error);
 @end
 
 
-//==============================================================================
-@interface LembasObject (DataStore)
-
-//+(HandsomeObject*)getObject:(NSString *)objectKey;
-//
-//-(void)save;
-//-(void)saveWithCallback:(HandsomeCallback)callback;
-//-(void)saveWithTarget:(id)target andSelector:(SEL)selector;
-//
-//-(void)remove;
-//-(void)removeWithTarget:(id)target andSelector:(SEL)selector;
-
-//+(void)listHandsomeObjects:(NSString *)className target:(id)target selector:(SEL)selector;
-//+(void)listHandsomeObjects:(NSString *)className complete:(HandsomeUserQueryCallBack)callback;
-
-@end

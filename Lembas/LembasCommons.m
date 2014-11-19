@@ -1,6 +1,6 @@
 //
-//  HandsomeCommons.m
-//  HandsomeLibrary
+//  LembasCommons.m
+//  LembasLibrary
 //
 //  Created by Anil Can Baykal on 1/31/13.
 //

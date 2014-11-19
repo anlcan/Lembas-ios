@@ -1,6 +1,6 @@
 //
-//  HandsomeUtil.m
-//  HandsomeLibrary
+//  LembasUtil.m
+//  LembasLibrary
 //
 //  Created by Anil Can Baykal on 11/23/12.
 //
@@ -27,9 +27,19 @@
     self = [super init];
     if (self) {
         
+        self.mdateFormatter = [[NSDateFormatter alloc] init];
+        [self.mdateFormatter setDateFormat:@"HH:mm:ss dd/MM/yyyyZ"];
+        
         self.dateFormatter = [[NSDateFormatter alloc] init];
-        NSString *dateFormat = @"HH:mm:ss dd/MM/yyyyZ";
-        [self.dateFormatter setDateFormat:dateFormat];
+        [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        
+        self.timeFormatter = [[NSDateFormatter alloc] init];
+        [self.timeFormatter setDateFormat:@"HH:mm:ss"];
+        
+        self.zoneFormatter = [[NSDateFormatter alloc] init];
+        [self.zoneFormatter setDateFormat:@"Z"];
+        
+        
     }
     return self;
 }
@@ -105,6 +115,7 @@
     LembasDate * result = [LembasDate new];
     result.time = [[LembasUtil shared].timeFormatter stringFromDate:date];
     result.date = [[LembasUtil shared].dateFormatter stringFromDate:date];
+    result.zone = [[LembasUtil shared].zoneFormatter stringFromDate:date];
     
     return result;
 }
@@ -114,7 +125,7 @@
     NSString * dateString = [NSString stringWithFormat:@"%@ %@%@",
                              mdate.time, mdate.date, mdate.zone];
     
-    NSDate* date = [[LembasUtil shared].dateFormatter dateFromString:dateString];
+    NSDate* date = [[LembasUtil shared].mdateFormatter dateFromString:dateString];
     return date;
 }
 

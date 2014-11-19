@@ -37,7 +37,6 @@
 		966391DE18698EBC00EE258B /* LembasResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918418698EBC00EE258B /* LembasResponse.m */; };
 		966391DF18698EBC00EE258B /* LembasUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918618698EBC00EE258B /* LembasUtil.m */; };
 		966391E018698EBC00EE258B /* LoxoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918818698EBC00EE258B /* LoxoService.m */; };
-		966391E118698EBC00EE258B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918B18698EBC00EE258B /* NSData+Base64.m */; };
 		966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918D18698EBC00EE258B /* NSObject+Marshall.m */; };
 		966391E318698EBC00EE258B /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918F18698EBC00EE258B /* RequestManager.m */; };
 		96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E63557188D2E4D00B8C386 /* OdeAl.m */; };
@@ -107,8 +106,6 @@
 		9663918618698EBC00EE258B /* LembasUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasUtil.m; sourceTree = "<group>"; };
 		9663918718698EBC00EE258B /* LoxoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoxoService.h; sourceTree = "<group>"; };
 		9663918818698EBC00EE258B /* LoxoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoxoService.m; sourceTree = "<group>"; };
-		9663918A18698EBC00EE258B /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		9663918B18698EBC00EE258B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		9663918C18698EBC00EE258B /* NSObject+Marshall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Marshall.h"; sourceTree = "<group>"; };
 		9663918D18698EBC00EE258B /* NSObject+Marshall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Marshall.m"; sourceTree = "<group>"; };
 		9663918E18698EBC00EE258B /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
@@ -278,7 +275,6 @@
 				9663918618698EBC00EE258B /* LembasUtil.m */,
 				9663918718698EBC00EE258B /* LoxoService.h */,
 				9663918818698EBC00EE258B /* LoxoService.m */,
-				9663918918698EBC00EE258B /* NSData+Base64 */,
 				9663918C18698EBC00EE258B /* NSObject+Marshall.h */,
 				9663918D18698EBC00EE258B /* NSObject+Marshall.m */,
 				9663918E18698EBC00EE258B /* RequestManager.h */,
@@ -286,15 +282,6 @@
 			);
 			name = Lembas;
 			path = ../../../Lembas;
-			sourceTree = "<group>";
-		};
-		9663918918698EBC00EE258B /* NSData+Base64 */ = {
-			isa = PBXGroup;
-			children = (
-				9663918A18698EBC00EE258B /* NSData+Base64.h */,
-				9663918B18698EBC00EE258B /* NSData+Base64.m */,
-			);
-			path = "NSData+Base64";
 			sourceTree = "<group>";
 		};
 		96E63555188D2E4D00B8C386 /* odeal */ = {
@@ -405,7 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9663919218698EBC00EE258B /* AFHTTPRequestOperation.m in Sources */,
-				966391E118698EBC00EE258B /* NSData+Base64.m in Sources */,
 				966390D018698E9C00EE258B /* HBDViewController.m in Sources */,
 				96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */,
 				966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */,

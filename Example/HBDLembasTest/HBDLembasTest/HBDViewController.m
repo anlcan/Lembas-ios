@@ -9,7 +9,7 @@
 #import "HBDViewController.h"
 #import "OdeAl.h"
 #import "RequestManager.h"
-@interface HBDViewController ()<HandsomeRequestDelegate>
+@interface HBDViewController ()<LembasRequestDelegate>
 
 @end
 
@@ -50,8 +50,8 @@
 //    [request setEndPointHost:@"http://localhost:8888/OdeAl"];
     [request run];
     
-    LoginRequest * request2 = [[LoginRequest alloc] initWithDelegate:self];
-    [request2 run];
+//    LoginRequest * request2 = [[LoginRequest alloc] initWithDelegate:self];
+//    [request2 run];
 }
 
 - (void)didReceiveMemoryWarning

@@ -32,7 +32,9 @@ NSString * const LembasPayloadErrorKey 	= @"Error";
     
     if ( jsonError != nil){
         NSString * dataString = [NSString stringWithUTF8String:data.bytes];
-        NSLog(@"error parsing server result:%@", dataString);
+        NSLog(@"error parsing server result:%@\n\n%@\n\n",
+              jsonError.localizedDescription,
+              dataString);
     }
     
     LembasResponse * res = nil;
@@ -60,15 +62,18 @@ NSString * const LembasPayloadErrorKey 	= @"Error";
 //==============================================================================
 @interface RequestManager(Private)
 
-@property (nonatomic, strong)AFHTTPRequestOperationManager * manager;
-
-
 -(void)requestSuccess:(LembasRequest*) req;
 -(void)requestFailure:(LembasRequest *)req withError:(NSError*)error;
 
 @end
 
+@interface RequestManager()
+@property (nonatomic, strong)AFHTTPRequestOperationManager * manager;
+@end
+
 //==============================================================================
+
+
 
 @implementation RequestManager
 

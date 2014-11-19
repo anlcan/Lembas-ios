@@ -16,11 +16,11 @@
 
 #else
 
-#define _ASSERT(STATEMENT) do { (void) sizeof(STATEMENT); } while(0)
-#define _NSLog(format, ...)
+#define _ASSERT(STATEMENT) while(0) {}
+#define _NSLog(format, ...)  while(0) { }
 
 #endif 
 
 // conditional logging
-#define _NSLogC(CONDITIONAL, format, ...)		if (CONDITIONAL == YES) _NSLog(format, ##__VA_ARGS__)
+#define _NSLogC(CONDITIONAL, format, ...)		if (CONDITIONAL == YES) {_NSLog(format, ##__VA_ARGS__);}
 

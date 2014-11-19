@@ -14,7 +14,7 @@ NSString * const RequestManagerDidReceivedResponseNotification = @"com.happyblue
 
 NSString * const LembasPayloadResultKey = @"Result";
 NSString * const LembasRequestKey 		= @"request";
-NSString * const LmbasPayloadErrorKey 	= @"Error";
+NSString * const LembasPayloadErrorKey 	= @"Error";
 
 //==============================================================================
 @implementation HandsomeResponseSerializer
@@ -41,8 +41,8 @@ NSString * const LmbasPayloadErrorKey 	= @"Error";
     NSDictionary * result = [dict objectForKey:LembasPayloadResultKey];
     if ( result != nil)
     	res = [NSObject deserialize:result];
-    else if ( [dict objectForKey:LmbasPayloadErrorKey]) {
-        res = [NSObject deserialize:[dict objectForKey:LmbasPayloadErrorKey]];
+    else if ( [dict objectForKey:LembasPayloadErrorKey]) {
+        res = [NSObject deserialize:[dict objectForKey:LembasPayloadErrorKey]];
         
     }
     

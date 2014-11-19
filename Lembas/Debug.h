@@ -17,7 +17,7 @@
 #else
 
 #define _ASSERT(STATEMENT) while(0) {}
-#define _NSLog(format, ...)  while(0) { }
+#define _NSLog(format, ...)  while(0) {}
 
 #endif 
 

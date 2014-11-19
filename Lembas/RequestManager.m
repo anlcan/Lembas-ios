@@ -60,6 +60,9 @@ NSString * const LmbasPayloadErrorKey 	= @"Error";
 //==============================================================================
 @interface RequestManager(Private)
 
+@property (nonatomic, strong)AFHTTPRequestOperationManager * manager;
+
+
 -(void)requestSuccess:(LembasRequest*) req;
 -(void)requestFailure:(LembasRequest *)req withError:(NSError*)error;
 
@@ -111,6 +114,8 @@ static RequestManager *sharedInstance = nil;
         [self.additionalHeaders setObject:VERSION_STRING
                                    forKey:HANDSOME_HEADER_VERSION];
 #endif
+        self.manager =[AFHTTPRequestOperationManager manager];
+
         
         
     }
@@ -118,6 +123,19 @@ static RequestManager *sharedInstance = nil;
     return self;
 }
 
+-(void)setShouldPinCertificate:(BOOL)shouldPinCertificate{
+    
+    if ( shouldPinCertificate){
+        self.manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+        self.manager.securityPolicy.allowInvalidCertificates = NO;
+        self.manager.securityPolicy.validatesDomainName = NO;
+        self.manager.securityPolicy.validatesCertificateChain = NO;
+    } else {
+        self.manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    }
+    
+    _shouldPinCertificate = shouldPinCertificate;
+}
 
 //==============================================================================
 // steal user agent from a dummy webview -
@@ -211,27 +229,17 @@ static RequestManager *sharedInstance = nil;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:RequestManagerDidSendRequestNotification
                                                         object:req];
-
-    
 }
 
 -(void)sendRequest:(LembasRequest*)req toUrl:(NSURLRequest*)urlRequest{
-   
     
     if ( [req.delegate respondsToSelector:@selector(requestWillStart:)]){
         [req.delegate requestWillStart:req];
     }
     
-    
     __block LembasRequest* __req = req;
-    AFHTTPRequestOperationManager * manager =[AFHTTPRequestOperationManager manager];
-    if ( self.shouldPinCertificate){
-        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-        manager.securityPolicy.allowInvalidCertificates = NO;
-        manager.securityPolicy.validatesDomainName = NO;
-        manager.securityPolicy.validatesCertificateChain = NO;
-    }
-    AFHTTPRequestOperation * operation = [manager HTTPRequestOperationWithRequest:urlRequest
+
+    AFHTTPRequestOperation * operation = [self.manager HTTPRequestOperationWithRequest:urlRequest
                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                               
                                                                               NSHTTPURLResponse * response = operation.response;
@@ -265,7 +273,7 @@ static RequestManager *sharedInstance = nil;
         operation.securityPolicy.allowInvalidCertificates = YES;
     }
     
-    [manager.operationQueue addOperation:operation];
+    [self.manager.operationQueue addOperation:operation];
 }
 
 

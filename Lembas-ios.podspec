@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Lembas-ios"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Lembas iOS client library"
 
   s.description  = <<-DESC

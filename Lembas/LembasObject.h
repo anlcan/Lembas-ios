@@ -32,19 +32,3 @@ typedef void(^LembasCallback)(LembasObject* object, NSError * error);
 @end
 
 
-//==============================================================================
-@interface LembasObject (DataStore)
-
-//+(LembasObject*)getObject:(NSString *)objectKey;
-//
-//-(void)save;
-//-(void)saveWithCallback:(LembasCallback)callback;
-//-(void)saveWithTarget:(id)target andSelector:(SEL)selector;
-//
-//-(void)remove;
-//-(void)removeWithTarget:(id)target andSelector:(SEL)selector;
-
-//+(void)listLembasObjects:(NSString *)className target:(id)target selector:(SEL)selector;
-//+(void)listLembasObjects:(NSString *)className complete:(HandsomeUserQueryCallBack)callback;
-
-@end

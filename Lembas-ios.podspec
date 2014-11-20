@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Lembas-ios"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Lembas iOS client library"
 
   s.description  = <<-DESC
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/anlcan/Lembas-ios.git", :commit => "62f97a10e3c8ec2bdb322d62ea0e25d593f4ae3d" }
+  s.source       = { :git => "https://github.com/anlcan/Lembas-ios.git", :tag => '0.0.3' }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

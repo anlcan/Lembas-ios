@@ -27,7 +27,7 @@ NSString * const LembasPayloadErrorKey 	= @"Error";
     // deserialize jsonstring
     NSError * jsonError = nil;
     NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:data
-                                                          options:0
+                                                          options:NSJSONReadingAllowFragments
                                                             error:&jsonError];
     
     if ( jsonError != nil){

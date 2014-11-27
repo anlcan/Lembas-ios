@@ -188,7 +188,7 @@ static RequestManager *sharedInstance = nil;
                                                         error:nil];
 
 	_NSLog(@"\n//==============================================================================\n%@ -> \n|%@|\n",url,
-          [NSString stringWithCString:output.bytes encoding:NSUTF8StringEncoding]);
+           [NSString stringWithUTF8String:output.bytes]);
 
 
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
@@ -248,7 +248,7 @@ static RequestManager *sharedInstance = nil;
                                                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                               
                                                                               NSHTTPURLResponse * response = operation.response;
-                                                                              _NSLog(@"<HANDSOME:%@>:response received", response.URL.path.lastPathComponent);
+                                                                              _NSLog(@"<LEMBAS:%@>:response received", response.URL.path.lastPathComponent);
                                                                               // server response
                                                                               __req.statusCode = [(NSHTTPURLResponse *)response statusCode];
                                                                               __req.requestDuration = [NSDate timeIntervalSinceReferenceDate] - __req.startTime;
@@ -266,7 +266,7 @@ static RequestManager *sharedInstance = nil;
                                                                           }
                                           
                                                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                              _NSLog(@"<HANDSOME:%@>:error received", error.localizedDescription);
+                                                                              _NSLog(@"<LEMBAS:%@>:error received", error.localizedDescription);
                                                                               
                                                                               req.statusCode = error.code;
                                                                               [self requestFailure:req withError:error];

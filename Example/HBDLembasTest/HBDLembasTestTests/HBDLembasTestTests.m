@@ -9,8 +9,9 @@
 #import <XCTest/XCTest.h>
 #import "OdeAl.h"
 #import "RequestManager.h"
+#import "LembasTestRequest.h"
 
-@interface HBDLembasTestTests : XCTestCase <HandsomeRequestDelegate>
+@interface HBDLembasTestTests : XCTestCase <LembasRequestDelegate>
 
 @end
 
@@ -30,27 +31,31 @@
 
 - (void)testExample
 {
-
+    LembasTestRequest * request = [[LembasTestRequest alloc] initWithDelegate:self];
+    request.cancel = YES;
     
-    [RequestManager sharedManager].useSynchronousForTesting = YES;
+    NSString * marshalled = [[NSObject serialize:request] description];
+    NSLog(@"%@", marshalled);
     
-    LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];
-    request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
-    request.tckNo = @"15763721406";
-    
-    request.completionBlock = ^(LembasRequest* req){
-        
-        LoginResponse * response = (LoginResponse*)req.response;
-        _NSLog(@"%@",response.merchant);
-    };
-    
-    request.failureBlock =^(LembasRequest* req, NSError * error){
-        
-        _NSLog(@"%@",error);
-    };
-    
-    
-    [request run];
+//    [RequestManager sharedManager].useSynchronousForTesting = YES;
+//    
+//    LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];
+//    request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
+//    request.tckNo = @"15763721406";
+//    
+//    request.completionBlock = ^(LembasRequest* req){
+//        
+//        LoginResponse * response = (LoginResponse*)req.response;
+//        _NSLog(@"%@",response.merchant);
+//    };
+//    
+//    request.failureBlock =^(LembasRequest* req, NSError * error){
+//        
+//        _NSLog(@"%@",error);
+//    };
+//    
+//    
+//    [request run];
     
 //    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }

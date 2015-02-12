@@ -144,10 +144,6 @@ NSString * typeIdentifier = @"_type";
     // request skip list
     static const  char* delegate 	= "delegate";
     static const  char* request  	= "httpRequest";
-    static const  char* token   	= "token";
-    // sevice skip list
-    static const  char* service   	= "service";
-
     
     const char * className = class_getName([instance class]);    
 	unsigned int outCount, i;
@@ -168,9 +164,7 @@ NSString * typeIdentifier = @"_type";
                 id value = NULL;
                 const char * name = property_getName(property);
                 if (strcmp(delegate, name) == 0 ||
-                    strcmp(request, name) == 0 ||
-                    strcmp(token, name) == 0||
-                    strcmp(service, name) == 0
+                    strcmp(request, name) == 0
                     ){
                     _NSLog(@"%s",name);
                     continue;

@@ -255,14 +255,13 @@ static RequestManager *sharedInstance = nil;
                                                                               __req.response = responseObject;
                                                                               
                                                                               
-                                                                       if ( __req.statusCode < 200 || req.statusCode > 399 || [__req.response isKindOfClass:[LembasFault class]]){
-                                                                           NSError * error = [[NSError alloc] initWithDomain:@"" code:__req.statusCode userInfo:nil];
-                                                                           [self requestFailure:req withError:error];
-                                                                       } else {
-                                                                           
-                                                                           [self requestSuccess:req];
-                                                                       }
-                                                                              
+                                                                              if ( __req.statusCode < 200 || req.statusCode > 399 || [__req.response isKindOfClass:[LembasFault class]]){
+                                                                                  NSError * error = [[NSError alloc] initWithDomain:@"" code:__req.statusCode userInfo:nil];
+                                                                                  [self requestFailure:req withError:error];
+                                                                              } else {
+                                                                                  
+                                                                                  [self requestSuccess:req];
+                                                                              }
                                                                           }
                                           
                                                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {

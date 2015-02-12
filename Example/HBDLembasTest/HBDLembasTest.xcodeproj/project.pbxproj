@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962B0EA91A320D6A002ABECD /* LembasTestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B0EA81A320D6A002ABECD /* LembasTestRequest.m */; };
 		966390BA18698E9C00EE258B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390B918698E9C00EE258B /* Foundation.framework */; };
 		966390BC18698E9C00EE258B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390BB18698E9C00EE258B /* CoreGraphics.framework */; };
 		966390BE18698E9C00EE258B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390BD18698E9C00EE258B /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		962B0EA71A320D6A002ABECD /* LembasTestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasTestRequest.h; sourceTree = "<group>"; };
+		962B0EA81A320D6A002ABECD /* LembasTestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasTestRequest.m; sourceTree = "<group>"; };
 		966390B618698E9C00EE258B /* HBDLembasTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HBDLembasTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		966390B918698E9C00EE258B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		966390BB18698E9C00EE258B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,8 +201,10 @@
 		966390DE18698E9C00EE258B /* HBDLembasTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				966390E418698E9C00EE258B /* HBDLembasTestTests.m */,
 				966390DF18698E9C00EE258B /* Supporting Files */,
+				966390E418698E9C00EE258B /* HBDLembasTestTests.m */,
+				962B0EA71A320D6A002ABECD /* LembasTestRequest.h */,
+				962B0EA81A320D6A002ABECD /* LembasTestRequest.m */,
 			);
 			path = HBDLembasTestTests;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				966390E518698E9C00EE258B /* HBDLembasTestTests.m in Sources */,
+				962B0EA91A320D6A002ABECD /* LembasTestRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

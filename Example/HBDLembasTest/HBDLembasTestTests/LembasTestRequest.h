@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LembasRequest.h"
 
-@interface LembasTestRequest : NSObject
-
+@interface LembasTestRequest : LembasRequest
+@property(nonatomic) BOOL  cancel;
 @end

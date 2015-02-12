@@ -18,11 +18,7 @@ typedef void(^LembasCallback)(LembasObject* object, NSError * error);
     void (^_saveSuccessBlock)();
 }
 
-@property (nonatomic, assign) LoxoService * service;
 @property (nonatomic, copy)  NSString * objectKey;
-
-@property (nonatomic, copy)  NSString * createDate;
-@property (nonatomic, copy)  NSString * updateDate;
 
 
 -(void)store;

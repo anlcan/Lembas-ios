@@ -1,4 +1,4 @@
-NSString * const OdeAlHost		= @"http://localhost:8080/";
+NSString * const OdeAlHost			= @"http://localhost:8080/";
 NSString * const OdeAlEndPoint		= @"http://localhost:8080/OdeAl/";
 
 #import "OdeAl.h"
@@ -9,7 +9,7 @@ NSString * const OdeAlEndPoint		= @"http://localhost:8080/OdeAl/";
 
 
 
-+(LoxoService*)shared{
++(LembasService*)shared{
     static OdeAl *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -38,7 +38,6 @@ NSString * const OdeAlEndPoint		= @"http://localhost:8080/OdeAl/";
     self = [super init];
     if (self != nil){
         self.service = [OdeAl shared];
-
     }
     return self;
 }
@@ -49,21 +48,21 @@ NSString * const OdeAlEndPoint		= @"http://localhost:8080/OdeAl/";
 @implementation OdeAlRequest
 
 -(id)initWithDelegate:(id<LembasRequestDelegate>)d{
-
+    
     self = [super initWithDelegate:d];
-
+    
     if (self) {
         self.service = [OdeAl shared];
         host = self.service.host;
     }
-
+    
     return self;
 }
 @end
 
 @implementation OdeAlResponse
 -(id)init{
-
+    
     self = [super init];
     if (self != nil){
         self.   service = [OdeAl shared];

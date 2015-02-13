@@ -8,7 +8,7 @@
 
 #import "LembasRequest.h"
 #import "RequestManager.h"
-#import "LoxoService.h"
+#import "LembasService.h"
 
 @implementation LembasRequest
 

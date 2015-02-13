@@ -10,9 +10,9 @@ for http://localhost:8080/
 */
 
 #import "LembasCommons.h"
-#import "LoxoService.h"
+#import "LembasService.h"
 
-@interface OdeAl : LoxoService
+@interface OdeAl : LembasService
 
 +(OdeAl*)shared;
 

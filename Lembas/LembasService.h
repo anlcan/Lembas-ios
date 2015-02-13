@@ -12,7 +12,7 @@
 #import "LembasCommons.h"
 #import "LembasObject.h"
 
-@interface LoxoService : NSObject {
+@interface LembasService : NSObject {
     NSString * _host;
     NSString * _projectId;
     NSOperationQueue 	* _queue;

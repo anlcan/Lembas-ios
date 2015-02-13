@@ -6,9 +6,9 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "LoxoService.h"
+#import "LembasService.h"
 
-@implementation LoxoService
+@implementation LembasService
 
 @synthesize host 		= _host;
 @synthesize projectId 	= _projectId;

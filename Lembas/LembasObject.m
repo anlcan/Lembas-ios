@@ -7,7 +7,7 @@
 
 #import "LembasObject.h"
 #import "NSObject+Marshall.h"
-#import "LoxoService.h"
+#import "LembasService.h"
 
 //==============================================================================
 @interface LembasObject()

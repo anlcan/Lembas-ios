@@ -32,12 +32,11 @@
 		9663919918698EBC00EE258B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663910318698EBA00EE258B /* AFURLResponseSerialization.m */; };
 		9663919A18698EBC00EE258B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663910518698EBA00EE258B /* AFURLSessionManager.m */; };
 		966391D918698EBC00EE258B /* LembasCommons.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663917A18698EBC00EE258B /* LembasCommons.m */; };
-		966391DB18698EBC00EE258B /* LembasObject+REST.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663917E18698EBC00EE258B /* LembasObject+REST.m */; };
 		966391DC18698EBC00EE258B /* LembasObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918018698EBC00EE258B /* LembasObject.m */; };
 		966391DD18698EBC00EE258B /* LembasRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918218698EBC00EE258B /* LembasRequest.m */; };
 		966391DE18698EBC00EE258B /* LembasResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918418698EBC00EE258B /* LembasResponse.m */; };
 		966391DF18698EBC00EE258B /* LembasUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918618698EBC00EE258B /* LembasUtil.m */; };
-		966391E018698EBC00EE258B /* LoxoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918818698EBC00EE258B /* LoxoService.m */; };
+		966391E018698EBC00EE258B /* LembasService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918818698EBC00EE258B /* LembasService.m */; };
 		966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918D18698EBC00EE258B /* NSObject+Marshall.m */; };
 		966391E318698EBC00EE258B /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918F18698EBC00EE258B /* RequestManager.m */; };
 		96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E63557188D2E4D00B8C386 /* OdeAl.m */; };
@@ -97,8 +96,6 @@
 		9663917818698EBC00EE258B /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		9663917918698EBC00EE258B /* LembasCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasCommons.h; sourceTree = "<group>"; };
 		9663917A18698EBC00EE258B /* LembasCommons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasCommons.m; sourceTree = "<group>"; };
-		9663917D18698EBC00EE258B /* LembasObject+REST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LembasObject+REST.h"; sourceTree = "<group>"; };
-		9663917E18698EBC00EE258B /* LembasObject+REST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LembasObject+REST.m"; sourceTree = "<group>"; };
 		9663917F18698EBC00EE258B /* LembasObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasObject.h; sourceTree = "<group>"; };
 		9663918018698EBC00EE258B /* LembasObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasObject.m; sourceTree = "<group>"; };
 		9663918118698EBC00EE258B /* LembasRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasRequest.h; sourceTree = "<group>"; };
@@ -107,8 +104,8 @@
 		9663918418698EBC00EE258B /* LembasResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasResponse.m; sourceTree = "<group>"; };
 		9663918518698EBC00EE258B /* LembasUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasUtil.h; sourceTree = "<group>"; };
 		9663918618698EBC00EE258B /* LembasUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasUtil.m; sourceTree = "<group>"; };
-		9663918718698EBC00EE258B /* LoxoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoxoService.h; sourceTree = "<group>"; };
-		9663918818698EBC00EE258B /* LoxoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoxoService.m; sourceTree = "<group>"; };
+		9663918718698EBC00EE258B /* LembasService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasService.h; sourceTree = "<group>"; };
+		9663918818698EBC00EE258B /* LembasService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasService.m; sourceTree = "<group>"; };
 		9663918C18698EBC00EE258B /* NSObject+Marshall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Marshall.h"; sourceTree = "<group>"; };
 		9663918D18698EBC00EE258B /* NSObject+Marshall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Marshall.m"; sourceTree = "<group>"; };
 		9663918E18698EBC00EE258B /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
@@ -268,8 +265,6 @@
 				9663917818698EBC00EE258B /* Debug.h */,
 				9663917918698EBC00EE258B /* LembasCommons.h */,
 				9663917A18698EBC00EE258B /* LembasCommons.m */,
-				9663917D18698EBC00EE258B /* LembasObject+REST.h */,
-				9663917E18698EBC00EE258B /* LembasObject+REST.m */,
 				9663917F18698EBC00EE258B /* LembasObject.h */,
 				9663918018698EBC00EE258B /* LembasObject.m */,
 				9663918118698EBC00EE258B /* LembasRequest.h */,
@@ -278,8 +273,8 @@
 				9663918418698EBC00EE258B /* LembasResponse.m */,
 				9663918518698EBC00EE258B /* LembasUtil.h */,
 				9663918618698EBC00EE258B /* LembasUtil.m */,
-				9663918718698EBC00EE258B /* LoxoService.h */,
-				9663918818698EBC00EE258B /* LoxoService.m */,
+				9663918718698EBC00EE258B /* LembasService.h */,
+				9663918818698EBC00EE258B /* LembasService.m */,
 				9663918C18698EBC00EE258B /* NSObject+Marshall.h */,
 				9663918D18698EBC00EE258B /* NSObject+Marshall.m */,
 				9663918E18698EBC00EE258B /* RequestManager.h */,
@@ -406,7 +401,6 @@
 				9663919918698EBC00EE258B /* AFURLResponseSerialization.m in Sources */,
 				9663919718698EBC00EE258B /* AFURLConnectionOperation.m in Sources */,
 				966391DE18698EBC00EE258B /* LembasResponse.m in Sources */,
-				966391DB18698EBC00EE258B /* LembasObject+REST.m in Sources */,
 				966391DF18698EBC00EE258B /* LembasUtil.m in Sources */,
 				966391DC18698EBC00EE258B /* LembasObject.m in Sources */,
 				9663919618698EBC00EE258B /* AFSecurityPolicy.m in Sources */,
@@ -415,7 +409,7 @@
 				9663919818698EBC00EE258B /* AFURLRequestSerialization.m in Sources */,
 				966391E318698EBC00EE258B /* RequestManager.m in Sources */,
 				9663919A18698EBC00EE258B /* AFURLSessionManager.m in Sources */,
-				966391E018698EBC00EE258B /* LoxoService.m in Sources */,
+				966391E018698EBC00EE258B /* LembasService.m in Sources */,
 				966390C618698E9C00EE258B /* main.m in Sources */,
 				966390CA18698E9C00EE258B /* HBDAppDelegate.m in Sources */,
 			);

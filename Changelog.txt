@@ -1,0 +1,47 @@
+version 1.5
+
+changelog:
+
+version 1.5
+------------------------
+- ARC compatiblity
+- completionCallback added for removing request retantion
+- statusCode added to callback
+
+version 1.1.3
+------------------------
+- tracking set to NO by default, enables if only token is present and is diffrent from testToken
+- session tracking is sent immediately 
+
+version 1.0
+------------------------
+-Merged DataStore with manager. 
+
+
+version 0.9 (Nov 27)
+------------------------
+-Added HandsomeManager for event/log tracking
+-Moved general info methods to HandsomUtil
+-Moved to native NSJSONserialization 
+
+version 0.8 (09/10/2012)
+------------------------
+-Moved to native json from JSONKit
+
+version 0.7
+------------------------
+-Moved to JSONKit from json
+-Included required libs
+-serialized moved to KVC..way too late
+
+version 0.6
+------------------------
+- removed register and pushregister from framework
+- added response property to request instances
+- added parameterless callbacks named successBlock, failureBlock
+
+version 0.5
+------------------------
+- removed sayhello method from framework.
+- added userdefaults for registerId.
+- debug timeout is set to  60sec.

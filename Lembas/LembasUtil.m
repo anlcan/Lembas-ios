@@ -43,32 +43,7 @@
     }
     return self;
 }
-/*
-//==============================================================================
-+(CTCarrier*) getCarrierInfo{
-    
-    // Setup the Network Info and create a CTCarrier object
-    CTTelephonyNetworkInfo *networkInfo = [[[CTTelephonyNetworkInfo alloc] init] autorelease];
-    CTCarrier *carrier = [networkInfo subscriberCellularProvider];
-    
-    // Get carrier name
-    NSString *carrierName = [carrier carrierName];
-    if (carrierName != nil)
-        _NSLog(@"Carrier: %@", carrierName);
-    
-    // Get mobile country code
-    NSString *mcc = [carrier mobileCountryCode];
-    if (mcc != nil)
-        _NSLog(@"Mobile Country Code (MCC): %@", mcc);
-    
-    // Get mobile network code
-    NSString *mnc = [carrier mobileNetworkCode];
-    if (mnc != nil)
-        _NSLog(@"Mobile Network Code (MNC): %@", mnc);
-    
-    return carrier;
-}
- */
+
 
 + (NSString *) getPlatform {
     

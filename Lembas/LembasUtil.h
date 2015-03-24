@@ -12,10 +12,8 @@
 #include <sys/sysctl.h>
 
 #include "LembasCommons.h"
-/*
-#import <CoreTelephony/CTCarrier.h>
-#import <CoreTelephony/CTTelephonyNetworkInfo.h>
-*/
+
+
 @interface LembasUtil : NSObject
 
 @property (nonatomic, retain) NSDateFormatter * timeFormatter;
@@ -28,7 +26,7 @@
 +(NSString *)getApplicationVersion;
 +(NSString *)getApplicationName;
 +(NSString *)getPlatform;
-//+(CTCarrier*)getCarrierInfo;
+
 
 
 //==============================================================================

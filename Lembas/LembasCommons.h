@@ -14,10 +14,21 @@
 @interface LembasDate : LembasObject {
     
 }
-@property(nonatomic, retain) NSString * date;
-@property(nonatomic, retain) NSString * time;
-@property(nonatomic, retain) NSString * zone;
-
+/**
+ * date in format :dd/MM/yyyy
+ */
+@property(nonatomic, strong) NSString * date;
+/**
+ * time in format HH:mm:ss
+ */
+@property(nonatomic, strong) NSString * time;
+/**
+ * zone in format : Z
+ */
+@property(nonatomic, strong) NSString * zone;
+/**
+ * returns the nsdate created by this lembasdate
+ */
 -(NSDate*)nsdate;
 @end
 
@@ -34,14 +45,3 @@
 
 @end
 
-
-//==============================================================================
-@interface MFile : LembasObject {
-    
-}
-@property (nonatomic, retain) NSData * data;
-@property (nonatomic, assign, getter = isDataAvailable) BOOL dataAvailable;
-
-
-
-@end

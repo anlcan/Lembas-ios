@@ -30,6 +30,7 @@
     request.password = @"a4324d2e97b91753605eb8cc44e883c002da2285b92eb1dd591e6399be788e6d";
     request.tckNo = @"35666140762";    
     [request.additionalHeaders setObject:@"FUCK YEAH" forKey:@"X-TELERA-OH-YEAH"];
+    //request.timeout = 1;
     
     request.completionBlock = ^(LembasRequest* req){
         

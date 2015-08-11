@@ -47,6 +47,8 @@
 
 @property (nonatomic, strong)NSMutableDictionary * additionalHeaders;
 
+@property (nonatomic) NSUInteger timeout;
+
 @property (nonatomic, strong) NSString *verb;
 @property (nonatomic, strong) NSString *session; // generated id on every app launch
 @property (nonatomic, strong) NSString *registerId; // given by a Handsome Register Response

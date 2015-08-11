@@ -197,25 +197,20 @@ static RequestManager *sharedInstance = nil;
     [urlRequest addValue:handsome_time
       forHTTPHeaderField:HANDSOME_HEADER_TIME];
 
-    
-        
 #ifdef TOKEN
     // token to hash
-    NSString * tokenSource = [NSString stringWithFormat:@"%@%@%@",handsome_time,req.session,req.verb];
+    NSString * tokenSource = [NSString stringWithFormat:@"%@%@%@",
+                              handsome_time,
+                              req.session,
+                              req.verb];
     
     [urlRequest addValue:tokenSource
-      forHTTPHeaderField:@"x-handsome-tokensource"];
+      forHTTPHeaderField:@"x-lembas-token"];
 #endif
         
     //if (self.userAgent)
     [urlRequest addValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
-    
-#ifdef DEBUG
-    [urlRequest setTimeoutInterval:75];
-#else
-    [urlRequest setTimeoutInterval:45];
-#endif
-
+    [urlRequest setTimeoutInterval:req.timeout];
     [urlRequest setHTTPBody:output];
     
     // adding  headers

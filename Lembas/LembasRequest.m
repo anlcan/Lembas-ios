@@ -28,7 +28,11 @@
     self = [super init];
     
     if (self) {
-    	
+#ifdef DEBUG
+        self.timeout = 75;
+#else
+        self.timeout = 45;
+#endif
         self.delegate = d;
         self.additionalHeaders = [NSMutableDictionary dictionaryWithCapacity:0];
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B81AEB83315A944DD46111D /* Pods_HBDLembasTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFFCC0701E817D7A4F6EDC4 /* Pods_HBDLembasTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		962B0EA91A320D6A002ABECD /* LembasTestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 962B0EA81A320D6A002ABECD /* LembasTestRequest.m */; };
 		966390BA18698E9C00EE258B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390B918698E9C00EE258B /* Foundation.framework */; };
 		966390BC18698E9C00EE258B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390BB18698E9C00EE258B /* CoreGraphics.framework */; };
@@ -22,15 +23,6 @@
 		966390DB18698E9C00EE258B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966390BD18698E9C00EE258B /* UIKit.framework */; };
 		966390E318698E9C00EE258B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 966390E118698E9C00EE258B /* InfoPlist.strings */; };
 		966390E518698E9C00EE258B /* HBDLembasTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390E418698E9C00EE258B /* HBDLembasTestTests.m */; };
-		9663919218698EBC00EE258B /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390F418698EBA00EE258B /* AFHTTPRequestOperation.m */; };
-		9663919318698EBC00EE258B /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390F618698EBA00EE258B /* AFHTTPRequestOperationManager.m */; };
-		9663919418698EBC00EE258B /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390F818698EBA00EE258B /* AFHTTPSessionManager.m */; };
-		9663919518698EBC00EE258B /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390FB18698EBA00EE258B /* AFNetworkReachabilityManager.m */; };
-		9663919618698EBC00EE258B /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390FD18698EBA00EE258B /* AFSecurityPolicy.m */; };
-		9663919718698EBC00EE258B /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 966390FF18698EBA00EE258B /* AFURLConnectionOperation.m */; };
-		9663919818698EBC00EE258B /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663910118698EBA00EE258B /* AFURLRequestSerialization.m */; };
-		9663919918698EBC00EE258B /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663910318698EBA00EE258B /* AFURLResponseSerialization.m */; };
-		9663919A18698EBC00EE258B /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663910518698EBA00EE258B /* AFURLSessionManager.m */; };
 		966391D918698EBC00EE258B /* LembasCommons.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663917A18698EBC00EE258B /* LembasCommons.m */; };
 		966391DC18698EBC00EE258B /* LembasObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918018698EBC00EE258B /* LembasObject.m */; };
 		966391DD18698EBC00EE258B /* LembasRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9663918218698EBC00EE258B /* LembasRequest.m */; };
@@ -53,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35807D029042DCF5217162DD /* Pods-HBDLembasTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HBDLembasTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HBDLembasTest/Pods-HBDLembasTest.debug.xcconfig"; sourceTree = "<group>"; };
+		6BFFCC0701E817D7A4F6EDC4 /* Pods_HBDLembasTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HBDLembasTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C7B0A0D57B5A0EDBEB5FA4B /* Pods-HBDLembasTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HBDLembasTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-HBDLembasTest/Pods-HBDLembasTest.release.xcconfig"; sourceTree = "<group>"; };
 		962B0EA71A320D6A002ABECD /* LembasTestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasTestRequest.h; sourceTree = "<group>"; };
 		962B0EA81A320D6A002ABECD /* LembasTestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasTestRequest.m; sourceTree = "<group>"; };
 		966390B618698E9C00EE258B /* HBDLembasTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HBDLembasTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,25 +69,6 @@
 		966390E018698E9C00EE258B /* HBDLembasTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HBDLembasTestTests-Info.plist"; sourceTree = "<group>"; };
 		966390E218698E9C00EE258B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		966390E418698E9C00EE258B /* HBDLembasTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDLembasTestTests.m; sourceTree = "<group>"; };
-		966390F318698EBA00EE258B /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		966390F418698EBA00EE258B /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		966390F518698EBA00EE258B /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		966390F618698EBA00EE258B /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		966390F718698EBA00EE258B /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		966390F818698EBA00EE258B /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		966390F918698EBA00EE258B /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		966390FA18698EBA00EE258B /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		966390FB18698EBA00EE258B /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		966390FC18698EBA00EE258B /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		966390FD18698EBA00EE258B /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		966390FE18698EBA00EE258B /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		966390FF18698EBA00EE258B /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		9663910018698EBA00EE258B /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		9663910118698EBA00EE258B /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		9663910218698EBA00EE258B /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		9663910318698EBA00EE258B /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		9663910418698EBA00EE258B /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		9663910518698EBA00EE258B /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		9663917818698EBC00EE258B /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		9663917918698EBC00EE258B /* LembasCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LembasCommons.h; sourceTree = "<group>"; };
 		9663917A18698EBC00EE258B /* LembasCommons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LembasCommons.m; sourceTree = "<group>"; };
@@ -122,6 +98,7 @@
 				966390BC18698E9C00EE258B /* CoreGraphics.framework in Frameworks */,
 				966390BE18698E9C00EE258B /* UIKit.framework in Frameworks */,
 				966390BA18698E9C00EE258B /* Foundation.framework in Frameworks */,
+				3B81AEB83315A944DD46111D /* Pods_HBDLembasTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +122,7 @@
 				966390DE18698E9C00EE258B /* HBDLembasTestTests */,
 				966390B818698E9C00EE258B /* Frameworks */,
 				966390B718698E9C00EE258B /* Products */,
+				9ACA46AA81DBD160D64F1C1B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +142,7 @@
 				966390BB18698E9C00EE258B /* CoreGraphics.framework */,
 				966390BD18698E9C00EE258B /* UIKit.framework */,
 				966390D818698E9C00EE258B /* XCTest.framework */,
+				6BFFCC0701E817D7A4F6EDC4 /* Pods_HBDLembasTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -218,45 +197,9 @@
 		966390EE18698EAC00EE258B /* Lembas */ = {
 			isa = PBXGroup;
 			children = (
-				966390EF18698EBA00EE258B /* AFNetworking */,
 				9663917718698EBC00EE258B /* Lembas */,
 			);
 			name = Lembas;
-			sourceTree = "<group>";
-		};
-		966390EF18698EBA00EE258B /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				966390F218698EBA00EE258B /* AFNetworking */,
-			);
-			name = AFNetworking;
-			path = ../../../AFNetworking;
-			sourceTree = "<group>";
-		};
-		966390F218698EBA00EE258B /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				966390F318698EBA00EE258B /* AFHTTPRequestOperation.h */,
-				966390F418698EBA00EE258B /* AFHTTPRequestOperation.m */,
-				966390F518698EBA00EE258B /* AFHTTPRequestOperationManager.h */,
-				966390F618698EBA00EE258B /* AFHTTPRequestOperationManager.m */,
-				966390F718698EBA00EE258B /* AFHTTPSessionManager.h */,
-				966390F818698EBA00EE258B /* AFHTTPSessionManager.m */,
-				966390F918698EBA00EE258B /* AFNetworking.h */,
-				966390FA18698EBA00EE258B /* AFNetworkReachabilityManager.h */,
-				966390FB18698EBA00EE258B /* AFNetworkReachabilityManager.m */,
-				966390FC18698EBA00EE258B /* AFSecurityPolicy.h */,
-				966390FD18698EBA00EE258B /* AFSecurityPolicy.m */,
-				966390FE18698EBA00EE258B /* AFURLConnectionOperation.h */,
-				966390FF18698EBA00EE258B /* AFURLConnectionOperation.m */,
-				9663910018698EBA00EE258B /* AFURLRequestSerialization.h */,
-				9663910118698EBA00EE258B /* AFURLRequestSerialization.m */,
-				9663910218698EBA00EE258B /* AFURLResponseSerialization.h */,
-				9663910318698EBA00EE258B /* AFURLResponseSerialization.m */,
-				9663910418698EBA00EE258B /* AFURLSessionManager.h */,
-				9663910518698EBA00EE258B /* AFURLSessionManager.m */,
-			);
-			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 		9663917718698EBC00EE258B /* Lembas */ = {
@@ -293,6 +236,15 @@
 			path = odeal;
 			sourceTree = "<group>";
 		};
+		9ACA46AA81DBD160D64F1C1B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35807D029042DCF5217162DD /* Pods-HBDLembasTest.debug.xcconfig */,
+				8C7B0A0D57B5A0EDBEB5FA4B /* Pods-HBDLembasTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 966390E818698E9C00EE258B /* Build configuration list for PBXNativeTarget "HBDLembasTest" */;
 			buildPhases = (
+				4C01974F1E4A74B6A75F0183 /* Check Pods Manifest.lock */,
 				966390B218698E9C00EE258B /* Sources */,
 				966390B318698E9C00EE258B /* Frameworks */,
 				966390B418698E9C00EE258B /* Resources */,
+				59EF4398E0CA9BF32EE464CB /* Embed Pods Frameworks */,
+				66431D87F62E11B8C6DFA1C3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -386,29 +341,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C01974F1E4A74B6A75F0183 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		59EF4398E0CA9BF32EE464CB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HBDLembasTest/Pods-HBDLembasTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66431D87F62E11B8C6DFA1C3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HBDLembasTest/Pods-HBDLembasTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		966390B218698E9C00EE258B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9663919218698EBC00EE258B /* AFHTTPRequestOperation.m in Sources */,
 				966390D018698E9C00EE258B /* HBDViewController.m in Sources */,
 				96E63558188D2E4D00B8C386 /* OdeAl.m in Sources */,
 				966391E218698EBC00EE258B /* NSObject+Marshall.m in Sources */,
-				9663919318698EBC00EE258B /* AFHTTPRequestOperationManager.m in Sources */,
-				9663919518698EBC00EE258B /* AFNetworkReachabilityManager.m in Sources */,
 				966391DD18698EBC00EE258B /* LembasRequest.m in Sources */,
-				9663919918698EBC00EE258B /* AFURLResponseSerialization.m in Sources */,
-				9663919718698EBC00EE258B /* AFURLConnectionOperation.m in Sources */,
 				966391DE18698EBC00EE258B /* LembasResponse.m in Sources */,
 				966391DF18698EBC00EE258B /* LembasUtil.m in Sources */,
 				966391DC18698EBC00EE258B /* LembasObject.m in Sources */,
-				9663919618698EBC00EE258B /* AFSecurityPolicy.m in Sources */,
 				966391D918698EBC00EE258B /* LembasCommons.m in Sources */,
-				9663919418698EBC00EE258B /* AFHTTPSessionManager.m in Sources */,
-				9663919818698EBC00EE258B /* AFURLRequestSerialization.m in Sources */,
 				966391E318698EBC00EE258B /* RequestManager.m in Sources */,
-				9663919A18698EBC00EE258B /* AFURLSessionManager.m in Sources */,
 				966391E018698EBC00EE258B /* LembasService.m in Sources */,
 				966390C618698E9C00EE258B /* main.m in Sources */,
 				966390CA18698E9C00EE258B /* HBDAppDelegate.m in Sources */,
@@ -536,6 +530,7 @@
 		};
 		966390E918698E9C00EE258B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35807D029042DCF5217162DD /* Pods-HBDLembasTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -549,6 +544,7 @@
 		};
 		966390EA18698E9C00EE258B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C7B0A0D57B5A0EDBEB5FA4B /* Pods-HBDLembasTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

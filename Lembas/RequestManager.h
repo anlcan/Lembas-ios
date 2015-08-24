@@ -10,7 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "LembasRequest.h"
 
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 #ifdef VERSION
 #define MACRO_VALUE_TO_STRING_( m ) #m

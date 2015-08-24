@@ -24,6 +24,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     //[RequestManager sharedManager].useSynchronousForTesting = YES;
+    [RequestManager sharedManager].shouldPinCertificate = NO;
     
     
     LoginRequest * request = [[LoginRequest alloc] initWithDelegate:self];

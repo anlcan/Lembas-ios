@@ -134,7 +134,6 @@ static RequestManager *sharedInstance = nil;
         self.manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
         self.manager.securityPolicy.allowInvalidCertificates = NO;
         self.manager.securityPolicy.validatesDomainName = NO;
-        self.manager.securityPolicy.validatesCertificateChain = NO;
     } else {
         self.manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
     }
